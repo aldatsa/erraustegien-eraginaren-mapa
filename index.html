@@ -11,7 +11,7 @@
         <script src="js/jquery-2.2.0.min.js"></script>
         <script src="js/leaflet.js"></script>
         <script>
-            var mapa = L.map('mapa').setView([43.28, -2.05], 10);
+            var mapa = L.map('mapa').setView([43.28, -2.05], 11);
             /*L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
             	attribution: 'Lauzak &copy; Esri &mdash; Iturburua: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, eta GIS erabiltzaile komunitatea'
             }).addTo(mapa);*/
@@ -47,6 +47,30 @@
             }).addTo(mapa);
 
             var km20 = L.circle([43.256308, -2.040659], 20000, {
+                color: 'red',
+                fillColor: '#f03',
+                fillOpacity: 0.3
+            }).addTo(mapa);
+
+            var km5_rezola = L.circle([43.285839, -1.997300], 5000, {
+                color: 'red',
+                fillColor: '#f03',
+                fillOpacity: 0.6
+            }).addTo(mapa);
+
+            var km10_rezola = L.circle([43.285839, -1.997300], 10000, {
+                color: 'red',
+                fillColor: '#f03',
+                fillOpacity: 0.5
+            }).addTo(mapa);
+
+            var km15_rezola = L.circle([43.285839, -1.997300], 15000, {
+                color: 'red',
+                fillColor: '#f03',
+                fillOpacity: 0.4
+            }).addTo(mapa);
+
+            var km20_rezola = L.circle([43.285839, -1.997300], 20000, {
                 color: 'red',
                 fillColor: '#f03',
                 fillOpacity: 0.3
