@@ -1,0 +1,80 @@
+<!doctype html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/leaflet.css" />
+        <link rel="stylesheet" href="css/estiloa.css" />
+    </head>
+    <body>
+        <div id="mapa"></div>
+        <script src="js/jquery-2.2.0.min.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script>
+            var mapa = L.map('mapa').setView([43.28, -2.05], 14);
+            L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+            	attribution: 'Lauzak &copy; Esri &mdash; Iturburua: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, eta GIS erabiltzaile komunitatea'
+            }).addTo(mapa);
+
+            var km1 = L.circle([43.256308, -2.040659], 1000, {
+                color: 'red',
+                fillColor: '#f03',
+                fillOpacity: 0.1
+            }).addTo(mapa);
+
+            var km2 = L.circle([43.256308, -2.040659], 2000, {
+                color: 'red',
+                fillColor: '#f03',
+                fillOpacity: 0.1
+            }).addTo(mapa);
+
+            var km3 = L.circle([43.256308, -2.040659], 3000, {
+                color: 'red',
+                fillColor: '#f03',
+                fillOpacity: 0.1
+            }).addTo(mapa);
+
+            var km4 = L.circle([43.256308, -2.040659], 4000, {
+                color: 'red',
+                fillColor: '#f03',
+                fillOpacity: 0.1
+            }).addTo(mapa);
+
+            var km5 = L.circle([43.256308, -2.040659], 5000, {
+                color: 'red',
+                fillColor: '#f03',
+                fillOpacity: 0.1
+            }).addTo(mapa);
+
+            var km6 = L.circle([43.256308, -2.040659], 6000, {
+                color: 'red',
+                fillColor: '#f03',
+                fillOpacity: 0.1
+            }).addTo(mapa);
+
+            var km7 = L.circle([43.256308, -2.040659], 7000, {
+                color: 'red',
+                fillColor: '#f03',
+                fillOpacity: 0.1
+            }).addTo(mapa);
+
+            var km8 = L.circle([43.256308, -2.040659], 8000, {
+                color: 'red',
+                fillColor: '#f03',
+                fillOpacity: 0.1
+            }).addTo(mapa);
+
+            var km9 = L.circle([43.256308, -2.040659], 9000, {
+                color: 'red',
+                fillColor: '#f03',
+                fillOpacity: 0.1
+            }).addTo(mapa);
+
+            var km10 = L.circle([43.256308, -2.040659], 10000, {
+                color: 'red',
+                fillColor: '#f03',
+                fillOpacity: 0.1
+            }).addTo(mapa);
+        </script>
+    </body>
+</html>
