@@ -10,6 +10,7 @@
         <div id="mapa"></div>
         <script src="js/jquery-2.2.0.min.js"></script>
         <script src="js/leaflet.js"></script>
+        <script src="js/erraustegiak.js"></script>
         <script>
             var mapa = L.map('mapa').setView([43.285839, -1.997300], 11);
             /*L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
@@ -28,54 +29,37 @@
             });
             MapQuestOpen_OSM.addTo(mapa);
 
-            var km5 = L.circle([43.256308, -2.040659], 5000, {
-                color: 'red',
-                fillColor: '#f03',
-                fillOpacity: 0.3
-            }).addTo(mapa);
+            var zubieta = new Erraustegia("Zubieta", mapa);
 
-            var km10 = L.circle([43.256308, -2.040659], 10000, {
-                color: 'red',
-                fillColor: '#f03',
-                fillOpacity: 0.2
-            }).addTo(mapa);
+            zubieta.marraztuZirkuluak([{
+                distantzia: 5000,
+                opakotasuna: 0.3
+            }, {
+                distantzia: 10000,
+                opakotasuna: 0.2
+            }, {
+                distantzia: 15000,
+                opakotasuna: 0.15
+            }, {
+                distantzia: 20000,
+                opakotasuna: 0.1
+            }]);
 
-            var km15 = L.circle([43.256308, -2.040659], 15000, {
-                color: 'red',
-                fillColor: '#f03',
-                fillOpacity: 0.15
-            }).addTo(mapa);
+            var rezola = new Erraustegia("Rezola", mapa);
 
-            var km20 = L.circle([43.256308, -2.040659], 20000, {
-                color: 'red',
-                fillColor: '#f03',
-                fillOpacity: 0.1
-            }).addTo(mapa);
-
-            var km5_rezola = L.circle([43.285839, -1.997300], 5000, {
-                color: 'red',
-                fillColor: '#f03',
-                fillOpacity: 0.3
-            }).addTo(mapa);
-
-            var km10_rezola = L.circle([43.285839, -1.997300], 10000, {
-                color: 'red',
-                fillColor: '#f03',
-                fillOpacity: 0.2
-            }).addTo(mapa);
-
-            var km15_rezola = L.circle([43.285839, -1.997300], 15000, {
-                color: 'red',
-                fillColor: '#f03',
-                fillOpacity: 0.15
-            }).addTo(mapa);
-
-            var km20_rezola = L.circle([43.285839, -1.997300], 20000, {
-                color: 'red',
-                fillColor: '#f03',
-                fillOpacity: 0.1
-            }).addTo(mapa);
-
+            rezola.marraztuZirkuluak([{
+                distantzia: 5000,
+                opakotasuna: 0.3
+            }, {
+                distantzia: 10000,
+                opakotasuna: 0.2
+            }, {
+                distantzia: 15000,
+                opakotasuna: 0.15
+            }, {
+                distantzia: 20000,
+                opakotasuna: 0.1
+            }]);
         </script>
     </body>
 </html>
