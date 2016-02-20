@@ -7,6 +7,12 @@
         <link rel="stylesheet" href="css/estiloa.css" />
     </head>
     <body>
+        <div id="bistaratze-aukerak">
+            <label for="zubieta">Zubieta</label>
+            <input type="checkbox" id="zubieta" checked>
+            <label for="rezola">Rezola</label>
+            <input type="checkbox" id="rezola" checked>
+        </div>
         <div id="mapa"></div>
         <script src="js/jquery-2.2.0.min.js"></script>
         <script src="js/leaflet.js"></script>
@@ -38,6 +44,7 @@
                     koordenatuak: [43.285839, -1.997300]
                 }
             }
+
             var zubieta = new Erraustegia(mapa, erraustegiak["Zubieta"]);
 
             var rezola = new Erraustegia(mapa, erraustegiak["Rezola"]);
@@ -54,8 +61,27 @@
 
             rezola.marraztuZirkuluak(zirkuluak);
 
-            rezola.ezabatuZirkuluak();
+            document.getElementById("zubieta").addEventListener("click", function(event) {
 
+                var checkbox = event.target;
+
+                if (checkbox.checked) {
+                    zubieta.marraztuZirkuluak(zirkuluak);
+                } else {
+                    zubieta.ezabatuZirkuluak();
+                }
+            });
+
+            document.getElementById("rezola").addEventListener("click", function(event) {
+
+                var checkbox = event.target;
+
+                if (checkbox.checked) {
+                    rezola.marraztuZirkuluak(zirkuluak);
+                } else {
+                    rezola.ezabatuZirkuluak();
+                }
+            });
         </script>
     </body>
 </html>
