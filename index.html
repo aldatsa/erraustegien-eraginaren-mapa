@@ -13,8 +13,34 @@
         <script src="js/erraustegiak.js"></script>
         <script>
             var mapa = L.map('mapa').setView([43.285839, -1.997300], 11);
-            var zubieta = new Erraustegia("Zubieta", mapa);
-            var rezola = new Erraustegia("Rezola", mapa);
+
+            var zirkuluak = [{
+                distantzia: 5000,
+                opakotasuna: 0.3
+            }, {
+                distantzia: 10000,
+                opakotasuna: 0.2
+            }, {
+                distantzia: 15000,
+                opakotasuna: 0.15
+            }, {
+                distantzia: 20000,
+                opakotasuna: 0.1
+            }];
+
+            var erraustegiak = {
+                "Zubieta": {
+                    izena: "Zubieta",
+                    koordenatuak: [43.256308, -2.040659]
+                },
+                "Rezola": {
+                    izena: "Rezola",
+                    koordenatuak: [43.285839, -1.997300]
+                }
+            }
+            var zubieta = new Erraustegia(mapa, erraustegiak["Zubieta"]);
+
+            var rezola = new Erraustegia(mapa, erraustegiak["Rezola"]);
 
             var MapQuestOpen_OSM = L.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/{type}/{z}/{x}/{y}.{ext}', {
             	type: 'map',
@@ -24,33 +50,9 @@
             });
             MapQuestOpen_OSM.addTo(mapa);
 
-            zubieta.marraztuZirkuluak([{
-                distantzia: 5000,
-                opakotasuna: 0.3
-            }, {
-                distantzia: 10000,
-                opakotasuna: 0.2
-            }, {
-                distantzia: 15000,
-                opakotasuna: 0.15
-            }, {
-                distantzia: 20000,
-                opakotasuna: 0.1
-            }]);
+            zubieta.marraztuZirkuluak(zirkuluak);
 
-            rezola.marraztuZirkuluak([{
-                distantzia: 5000,
-                opakotasuna: 0.3
-            }, {
-                distantzia: 10000,
-                opakotasuna: 0.2
-            }, {
-                distantzia: 15000,
-                opakotasuna: 0.15
-            }, {
-                distantzia: 20000,
-                opakotasuna: 0.1
-            }]);
+            rezola.marraztuZirkuluak(zirkuluak);
 
             rezola.ezabatuZirkuluak();
 

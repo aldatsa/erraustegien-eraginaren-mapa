@@ -1,13 +1,11 @@
-var Erraustegia = function(izena, mapa) {
+var Erraustegia = function(mapa, datuak) {
     "use strict";
 
-    this.latLng = {
-        "Zubieta": [43.256308, -2.040659],
-        "Rezola": [43.285839, -1.997300]
-    };
-
-    this.izena = izena;
     this.mapa = mapa;
+
+    this.izena = datuak.izena;
+    this.koordenatuak = datuak.koordenatuak;
+    
     this.zirkuluak = [];
 };
 
@@ -17,7 +15,7 @@ Erraustegia.prototype.marraztuZirkuluak = function(zirkuluak) {
 
     zirkuluak.forEach(function(element, index, array) {
 
-        self.zirkuluak.push(L.circle(self.latLng[self.izena], element.distantzia, {
+        self.zirkuluak.push(L.circle(self.koordenatuak, element.distantzia, {
             color: 'red',
             fillColor: '#f03',
             fillOpacity: element.opakotasuna
