@@ -11,33 +11,45 @@
         <script src="js/jquery-2.2.0.min.js"></script>
         <script src="js/leaflet.js"></script>
         <script>
-            var mapa = L.map('mapa').setView([43.28, -2.05], 14);
-            L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+            var mapa = L.map('mapa').setView([43.28, -2.05], 10);
+            /*L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
             	attribution: 'Lauzak &copy; Esri &mdash; Iturburua: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, eta GIS erabiltzaile komunitatea'
-            }).addTo(mapa);
+            }).addTo(mapa);*/
+            /*var OpenStreetMap_Mapnik = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            	maxZoom: 19,
+            	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            });
+            OpenStreetMap_Mapnik.addTo(mapa);*/
+            var MapQuestOpen_OSM = L.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/{type}/{z}/{x}/{y}.{ext}', {
+            	type: 'map',
+            	ext: 'jpg',
+            	attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/">MapQuest</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+            	subdomains: '1234'
+            });
+            MapQuestOpen_OSM.addTo(mapa);
 
             var km5 = L.circle([43.256308, -2.040659], 5000, {
                 color: 'red',
                 fillColor: '#f03',
-                fillOpacity: 0.4
+                fillOpacity: 0.5
             }).addTo(mapa);
 
             var km10 = L.circle([43.256308, -2.040659], 10000, {
                 color: 'red',
                 fillColor: '#f03',
-                fillOpacity: 0.3
+                fillOpacity: 0.4
             }).addTo(mapa);
 
             var km15 = L.circle([43.256308, -2.040659], 15000, {
                 color: 'red',
                 fillColor: '#f03',
-                fillOpacity: 0.2
+                fillOpacity: 0.3
             }).addTo(mapa);
 
             var km20 = L.circle([43.256308, -2.040659], 20000, {
                 color: 'red',
                 fillColor: '#f03',
-                fillOpacity: 0.1
+                fillOpacity: 0.2
             }).addTo(mapa);
 
         </script>
