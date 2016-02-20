@@ -13,14 +13,9 @@
         <script src="js/erraustegiak.js"></script>
         <script>
             var mapa = L.map('mapa').setView([43.285839, -1.997300], 11);
-            /*L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-            	attribution: 'Lauzak &copy; Esri &mdash; Iturburua: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, eta GIS erabiltzaile komunitatea'
-            }).addTo(mapa);*/
-            /*var OpenStreetMap_Mapnik = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            	maxZoom: 19,
-            	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-            });
-            OpenStreetMap_Mapnik.addTo(mapa);*/
+            var zubieta = new Erraustegia("Zubieta", mapa);
+            var rezola = new Erraustegia("Rezola", mapa);
+
             var MapQuestOpen_OSM = L.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/{type}/{z}/{x}/{y}.{ext}', {
             	type: 'map',
             	ext: 'jpg',
@@ -28,8 +23,6 @@
             	subdomains: '1234'
             });
             MapQuestOpen_OSM.addTo(mapa);
-
-            var zubieta = new Erraustegia("Zubieta", mapa);
 
             zubieta.marraztuZirkuluak([{
                 distantzia: 5000,
@@ -45,8 +38,6 @@
                 opakotasuna: 0.1
             }]);
 
-            var rezola = new Erraustegia("Rezola", mapa);
-
             rezola.marraztuZirkuluak([{
                 distantzia: 5000,
                 opakotasuna: 0.3
@@ -60,6 +51,9 @@
                 distantzia: 20000,
                 opakotasuna: 0.1
             }]);
+
+            rezola.ezabatuZirkuluak();
+
         </script>
     </body>
 </html>

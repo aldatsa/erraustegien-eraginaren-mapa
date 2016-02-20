@@ -8,6 +8,7 @@ var Erraustegia = function(izena, mapa) {
 
     this.izena = izena;
     this.mapa = mapa;
+    this.zirkuluak = [];
 };
 
 Erraustegia.prototype.marraztuZirkuluak = function(zirkuluak) {
@@ -16,11 +17,23 @@ Erraustegia.prototype.marraztuZirkuluak = function(zirkuluak) {
 
     zirkuluak.forEach(function(element, index, array) {
 
-        L.circle(self.latLng[self.izena], element.distantzia, {
+        self.zirkuluak.push(L.circle(self.latLng[self.izena], element.distantzia, {
             color: 'red',
             fillColor: '#f03',
             fillOpacity: element.opakotasuna
-        }).addTo(self.mapa);
+        }).addTo(self.mapa));
+    });
+
+};
+
+Erraustegia.prototype.ezabatuZirkuluak = function() {
+
+    var self = this;
+
+    self.zirkuluak.forEach(function(element, index, array) {
+
+        self.mapa.removeLayer(element);
+
     });
 
 };
