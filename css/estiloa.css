@@ -15,3 +15,29 @@ html, body {
 #mapa {
     height: 100%;
 }
+#kredituak {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    z-index: 1;
+    background-color: #fff;
+    width: 275px;
+    font-size: 12px;
+    font-family: Arial,Helvetica,sans-serif;
+    padding: 5px;
+    text-align: center;
+}
+#kredituak #argia {
+    width: 125px;
+}
+#kredituak #iametza {
+    width: 125px;
+    margin-left: 15px;
+}
+#kredituak #egilea {
+    padding-bottom: 3px;
+    padding-top: 3px;
+}
+#kredituak a {
+    color: #e50000;
+}

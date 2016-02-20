@@ -14,6 +14,12 @@
             <input type="checkbox" id="rezola" checked>
         </div>
         <div id="mapa"></div>
+        <div id="kredituak">
+            <a href="http://www.argia.eus/" target="_blank"><img id="argia" src="img/argia.jpg"></a>
+            <a href="http://www.iametza.eus/" target="_blank"><img id="iametza" src="img/iametza.png"></a>
+            <div id="egilea">Infografia: <strong>Asier Iturralde Sarasola</strong> <a href="http://aldatsa.eus" target="_blank">@aldatsa</a></div>
+            <div><a href="http://aldatsa.eus/erraustegien-eraginaren-mapa/" target="_blank">Iturburu kodea eta datuak (GPL/CC-BY-SA)</a></div>
+        </div>
         <script src="js/jquery-2.2.0.min.js"></script>
         <script src="js/leaflet.js"></script>
         <script src="js/erraustegiak.js"></script>
@@ -22,16 +28,16 @@
 
             var zirkuluak = [{
                 distantzia: 5000,
-                opakotasuna: 0.3
+                opakotasuna: 0.35
             }, {
                 distantzia: 10000,
-                opakotasuna: 0.2
+                opakotasuna: 0.25
             }, {
                 distantzia: 15000,
-                opakotasuna: 0.15
+                opakotasuna: 0.2
             }, {
                 distantzia: 20000,
-                opakotasuna: 0.1
+                opakotasuna: 0.15
             }];
 
             var erraustegiak = {
