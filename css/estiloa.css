@@ -44,3 +44,6 @@ html, body {
 #kredituak a {
     color: #e50000;
 }
+.leaflet-label {
+    border-color: #f03;
+}
