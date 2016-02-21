@@ -5,8 +5,9 @@ var Erraustegia = function(mapa, datuak) {
 
     this.izena = datuak.izena;
     this.koordenatuak = datuak.koordenatuak;
-    
+
     this.zirkuluak = [];
+    this.etiketak = [];
 };
 
 Erraustegia.prototype.marraztuZirkuluak = function(zirkuluak) {
@@ -20,6 +21,13 @@ Erraustegia.prototype.marraztuZirkuluak = function(zirkuluak) {
             fillColor: '#f03',
             fillOpacity: element.opakotasuna
         }).addTo(self.mapa));
+
+        var etiketa = new L.Label();
+        etiketa.setContent(self.izena + "tik " + element.distantzia / 1000 + " km");
+        etiketa.setLatLng([self.zirkuluak[index].getBounds().getCenter().lat, self.zirkuluak[index].getBounds().getEast()]);
+
+        self.mapa.showLabel(etiketa);
+        self.etiketak.push(etiketa);
     });
 
 };
