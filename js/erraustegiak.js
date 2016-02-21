@@ -42,4 +42,10 @@ Erraustegia.prototype.ezabatuZirkuluak = function() {
 
     });
 
+    self.etiketak.forEach(function(element, index, array) {
+
+        self.mapa.removeLayer(element);
+
+    });
+
 };
