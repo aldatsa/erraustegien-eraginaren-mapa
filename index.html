@@ -13,6 +13,8 @@
             <input type="checkbox" id="zubieta" checked>
             <label for="rezola">Rezola</label>
             <input type="checkbox" id="rezola" checked>
+            <label for="zabalgarbi">Zabalgarbi</label>
+            <input type="checkbox" id="zabalgarbi" checked>
         </div>
         <div id="mapa"></div>
         <div id="kredituak">
@@ -26,7 +28,7 @@
         <script src="js/leaflet.label.js"></script>
         <script src="js/erraustegiak.js"></script>
         <script>
-            var mapa = L.map('mapa').setView([43.285839, -1.997300], 11);
+            var mapa = L.map('mapa').setView([43.183376, -2.478662], 10);
 
             var zirkuluak = [{
                 distantzia: 5000,
@@ -50,12 +52,18 @@
                 "Rezola": {
                     izena: "Rezola",
                     koordenatuak: [43.285839, -1.997300]
+                },
+                "Zabalgarbi": {
+                    izena: "Zabalgarbi",
+                    koordenatuak: [43.250402, -2.968665]
                 }
             }
 
             var zubieta = new Erraustegia(mapa, erraustegiak["Zubieta"]);
 
             var rezola = new Erraustegia(mapa, erraustegiak["Rezola"]);
+
+            var zabalgarbi = new Erraustegia(mapa, erraustegiak["Zabalgarbi"]);
 
             var MapQuestOpen_OSM = L.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/{type}/{z}/{x}/{y}.{ext}', {
             	type: 'map',
@@ -68,6 +76,8 @@
             zubieta.marraztuZirkuluak(zirkuluak);
 
             rezola.marraztuZirkuluak(zirkuluak);
+
+            zabalgarbi.marraztuZirkuluak(zirkuluak);
 
             document.getElementById("zubieta").addEventListener("click", function(event) {
 
@@ -88,6 +98,17 @@
                     rezola.marraztuZirkuluak(zirkuluak);
                 } else {
                     rezola.ezabatuZirkuluak();
+                }
+            });
+
+            document.getElementById("zabalgarbi").addEventListener("click", function(event) {
+
+                var checkbox = event.target;
+
+                if (checkbox.checked) {
+                    zabalgarbi.marraztuZirkuluak(zirkuluak);
+                } else {
+                    zabalgarbi.ezabatuZirkuluak();
                 }
             });
         </script>
