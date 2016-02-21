@@ -23,7 +23,7 @@ Erraustegia.prototype.marraztuZirkuluak = function(zirkuluak) {
         }).addTo(self.mapa));
 
         var etiketa = new L.Label();
-        etiketa.setContent(self.izena + "tik " + element.distantzia / 1000 + " km");
+        etiketa.setContent(element.distantzia / 1000 + " km");
         etiketa.setLatLng([self.zirkuluak[index].getBounds().getCenter().lat, self.zirkuluak[index].getBounds().getEast()]);
 
         self.mapa.showLabel(etiketa);
