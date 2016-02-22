@@ -58,11 +58,11 @@
                 }
             }
 
-            var zubieta = new Erraustegia(mapa, erraustegiak["Zubieta"]);
+            var zubieta = new Erraustegia(mapa, erraustegiak["Zubieta"], zirkuluak);
 
-            var rezola = new Erraustegia(mapa, erraustegiak["Rezola"]);
+            var rezola = new Erraustegia(mapa, erraustegiak["Rezola"], zirkuluak);
 
-            var zabalgarbi = new Erraustegia(mapa, erraustegiak["Zabalgarbi"]);
+            var zabalgarbi = new Erraustegia(mapa, erraustegiak["Zabalgarbi"], zirkuluak);
 
             var MapQuestOpen_OSM = L.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/{type}/{z}/{x}/{y}.{ext}', {
             	type: 'map',
@@ -94,7 +94,7 @@
                 var checkbox = event.target;
 
                 if (checkbox.checked) {
-                    rezola.marraztuZirkuluak(zirkuluak);
+                    rezola.marraztuZirkuluak();
                 } else {
                     rezola.ezabatuZirkuluak();
                 }
@@ -105,11 +105,12 @@
                 var checkbox = event.target;
 
                 if (checkbox.checked) {
-                    zabalgarbi.marraztuZirkuluak(zirkuluak);
+                    zabalgarbi.marraztuZirkuluak();
                 } else {
                     zabalgarbi.ezabatuZirkuluak();
                 }
             });
+
         </script>
     </body>
 </html>
