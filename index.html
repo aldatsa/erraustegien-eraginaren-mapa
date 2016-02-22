@@ -72,18 +72,18 @@
             });
             MapQuestOpen_OSM.addTo(mapa);
 
-            zubieta.marraztuZirkuluak(zirkuluak);
+            zubieta.marraztuZirkuluak();
 
-            rezola.marraztuZirkuluak(zirkuluak);
+            rezola.marraztuZirkuluak();
 
-            zabalgarbi.marraztuZirkuluak(zirkuluak);
+            zabalgarbi.marraztuZirkuluak();
 
             document.getElementById("zubieta").addEventListener("click", function(event) {
 
                 var checkbox = event.target;
 
                 if (checkbox.checked) {
-                    zubieta.marraztuZirkuluak(zirkuluak);
+                    zubieta.marraztuZirkuluak();
                 } else {
                     zubieta.ezabatuZirkuluak();
                 }
