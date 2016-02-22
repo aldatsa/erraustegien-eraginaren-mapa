@@ -3,6 +3,8 @@ var Erraustegia = function(mapa, izena, koordenatuak, zirkuluak) {
 
     var self = this;
 
+    this.zoom_muga = 11;
+
     this.mapa = mapa;
 
     this.izena = izena;
@@ -15,7 +17,7 @@ var Erraustegia = function(mapa, izena, koordenatuak, zirkuluak) {
     this.mapa.on('zoomend', function() {
 
         // Zirkuluak txikiak direnean etiketak ezkutatu, bestela elkarren gainean ikusten dira.
-        if (mapa.getZoom() < 11) {
+        if (self.mapa.getZoom() < self.zoom_muga) {
 
             if (self.etiketakIkusgai()) {
 
@@ -52,12 +54,15 @@ Erraustegia.prototype.marraztuZirkuluak = function() {
 Erraustegia.prototype.gehituEtiketak = function() {
 
     var self = this;
+    
+    if (self.mapa.getZoom() >= self.zoom_muga) {
 
-    self.zirkuluak.forEach(function(element, index, array) {
+        self.zirkuluak.forEach(function(element, index, array) {
 
-        self.gehituEtiketa(self.leaflet_zirkuluak[index].getBounds().getCenter().lat, self.leaflet_zirkuluak[index].getBounds().getEast(), element.distantzia);
+            self.gehituEtiketa(self.leaflet_zirkuluak[index].getBounds().getCenter().lat, self.leaflet_zirkuluak[index].getBounds().getEast(), element.distantzia);
 
-    });
+        });
+    }
 };
 
 Erraustegia.prototype.gehituEtiketa = function(lat, lng, distantzia) {
