@@ -75,6 +75,7 @@
                 erraustegiak[gakoa].erraustegia = new Erraustegia(mapa, erraustegiak[gakoa].izena, erraustegiak[gakoa].koordenatuak, zirkuluak);
 
                 erraustegiak[gakoa].erraustegia.marraztuZirkuluak();
+                erraustegiak[gakoa].erraustegia.gehituEtiketak();
 
                 (function(gakoa) {
                     document.getElementById(gakoa).addEventListener("click", function(event) {
@@ -83,8 +84,10 @@
 
                         if (checkbox.checked) {
                             erraustegiak[gakoa].erraustegia.marraztuZirkuluak();
+                            erraustegiak[gakoa].erraustegia.gehituEtiketak();
                         } else {
                             erraustegiak[gakoa].erraustegia.ezabatuZirkuluak();
+                            erraustegiak[gakoa].erraustegia.ezabatuEtiketak();
                         }
                     });
                 })(gakoa);

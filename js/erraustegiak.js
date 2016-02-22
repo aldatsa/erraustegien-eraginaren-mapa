@@ -36,7 +36,7 @@ var Erraustegia = function(mapa, izena, koordenatuak, zirkuluak) {
 Erraustegia.prototype.marraztuZirkuluak = function() {
 
     var self = this;
-    
+
     self.zirkuluak.forEach(function(element, index, array) {
 
         self.leaflet_zirkuluak.push(L.circle(self.koordenatuak, element.distantzia, {
@@ -44,8 +44,6 @@ Erraustegia.prototype.marraztuZirkuluak = function() {
             fillColor: '#f03',
             fillOpacity: element.opakotasuna
         }).addTo(self.mapa));
-
-        self.gehituEtiketa(self.leaflet_zirkuluak[index].getBounds().getCenter().lat, self.leaflet_zirkuluak[index].getBounds().getEast(), element.distantzia);
 
     });
 
@@ -85,8 +83,6 @@ Erraustegia.prototype.ezabatuZirkuluak = function() {
     });
 
     self.leaflet_zirkuluak = [];
-
-    self.ezabatuEtiketak();
 
 };
 Erraustegia.prototype.ezabatuEtiketak = function () {
