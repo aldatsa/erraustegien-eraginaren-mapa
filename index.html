@@ -9,12 +9,12 @@
     </head>
     <body>
         <div id="bistaratze-aukerak">
-            <label for="zubieta">Zubieta</label>
-            <input type="checkbox" id="zubieta" checked>
-            <label for="rezola">Rezola</label>
-            <input type="checkbox" id="rezola" checked>
-            <label for="zabalgarbi">Zabalgarbi</label>
-            <input type="checkbox" id="zabalgarbi" checked>
+            <label for="Zubieta">Zubieta</label>
+            <input type="checkbox" id="Zubieta" checked>
+            <label for="Rezola">Rezola</label>
+            <input type="checkbox" id="Rezola" checked>
+            <label for="Zabalgarbi">Zabalgarbi</label>
+            <input type="checkbox" id="Zabalgarbi" checked>
         </div>
         <div id="mapa"></div>
         <div id="kredituak">
@@ -46,23 +46,20 @@
             var erraustegiak = {
                 "Zubieta": {
                     izena: "Zubieta",
-                    koordenatuak: [43.256308, -2.040659]
+                    koordenatuak: [43.256308, -2.040659],
+                    erraustegia: {}
                 },
                 "Rezola": {
                     izena: "Rezola",
-                    koordenatuak: [43.285839, -1.997300]
+                    koordenatuak: [43.285839, -1.997300],
+                    erraustegia: {}
                 },
                 "Zabalgarbi": {
                     izena: "Zabalgarbi",
-                    koordenatuak: [43.250402, -2.968665]
+                    koordenatuak: [43.250402, -2.968665],
+                    erraustegia: {}
                 }
-            }
-
-            var zubieta = new Erraustegia(mapa, erraustegiak["Zubieta"], zirkuluak);
-
-            var rezola = new Erraustegia(mapa, erraustegiak["Rezola"], zirkuluak);
-
-            var zabalgarbi = new Erraustegia(mapa, erraustegiak["Zabalgarbi"], zirkuluak);
+            };
 
             var MapQuestOpen_OSM = L.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/{type}/{z}/{x}/{y}.{ext}', {
             	type: 'map',
@@ -70,46 +67,28 @@
             	attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/">MapQuest</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
             	subdomains: '1234'
             });
+
             MapQuestOpen_OSM.addTo(mapa);
 
-            zubieta.marraztuZirkuluak();
+            for (var gakoa in erraustegiak) {
 
-            rezola.marraztuZirkuluak();
+                erraustegiak[gakoa].erraustegia = new Erraustegia(mapa, erraustegiak[gakoa].izena, erraustegiak[gakoa].koordenatuak, zirkuluak);
 
-            zabalgarbi.marraztuZirkuluak();
+                erraustegiak[gakoa].erraustegia.marraztuZirkuluak();
 
-            document.getElementById("zubieta").addEventListener("click", function(event) {
+                (function(gakoa) {
+                    document.getElementById(gakoa).addEventListener("click", function(event) {
 
-                var checkbox = event.target;
+                        var checkbox = event.target;
 
-                if (checkbox.checked) {
-                    zubieta.marraztuZirkuluak();
-                } else {
-                    zubieta.ezabatuZirkuluak();
-                }
-            });
-
-            document.getElementById("rezola").addEventListener("click", function(event) {
-
-                var checkbox = event.target;
-
-                if (checkbox.checked) {
-                    rezola.marraztuZirkuluak();
-                } else {
-                    rezola.ezabatuZirkuluak();
-                }
-            });
-
-            document.getElementById("zabalgarbi").addEventListener("click", function(event) {
-
-                var checkbox = event.target;
-
-                if (checkbox.checked) {
-                    zabalgarbi.marraztuZirkuluak();
-                } else {
-                    zabalgarbi.ezabatuZirkuluak();
-                }
-            });
+                        if (checkbox.checked) {
+                            erraustegiak[gakoa].erraustegia.marraztuZirkuluak();
+                        } else {
+                            erraustegiak[gakoa].erraustegia.ezabatuZirkuluak();
+                        }
+                    });
+                })(gakoa);
+            }
 
         </script>
     </body>

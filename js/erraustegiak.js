@@ -1,12 +1,12 @@
-var Erraustegia = function(mapa, erraustegia, zirkuluak) {
+var Erraustegia = function(mapa, izena, koordenatuak, zirkuluak) {
     "use strict";
 
     var self = this;
 
     this.mapa = mapa;
 
-    this.izena = erraustegia.izena;
-    this.koordenatuak = erraustegia.koordenatuak;
+    this.izena = izena;
+    this.koordenatuak = koordenatuak;
     this.zirkuluak = zirkuluak;
 
     this.leaflet_zirkuluak = [];
@@ -36,7 +36,7 @@ var Erraustegia = function(mapa, erraustegia, zirkuluak) {
 Erraustegia.prototype.marraztuZirkuluak = function() {
 
     var self = this;
-
+    
     self.zirkuluak.forEach(function(element, index, array) {
 
         self.leaflet_zirkuluak.push(L.circle(self.koordenatuak, element.distantzia, {
@@ -84,7 +84,7 @@ Erraustegia.prototype.ezabatuZirkuluak = function() {
 
     });
 
-    self.zirkuluak = [];
+    self.leaflet_zirkuluak = [];
 
     self.ezabatuEtiketak();
 
