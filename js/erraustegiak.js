@@ -3,7 +3,7 @@ var Erraustegia = function(mapa, izena, koordenatuak, zirkuluak) {
 
     var self = this;
 
-    this.zoom_muga = 11;
+    this.zoom_muga = 10;
 
     this.mapa = mapa;
 
@@ -54,7 +54,7 @@ Erraustegia.prototype.marraztuZirkuluak = function() {
 Erraustegia.prototype.gehituEtiketak = function() {
 
     var self = this;
-    
+
     if (self.mapa.getZoom() >= self.zoom_muga) {
 
         self.zirkuluak.forEach(function(element, index, array) {
