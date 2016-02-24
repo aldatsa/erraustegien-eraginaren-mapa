@@ -2,7 +2,7 @@
 
 Bilboko Zabalgarbi eta Donostiako Rezolan dagoeneko martxan dauden eta Zubietan eraiki nahi duten erraustegien eraginpeko zonaldeak bistaratzen dira mapa honetan.
 
-##Zure webgunean txertatzeko erabili txertatzeko kode hauek
+##Txertatu zure webgunean
 
 ###Gipuzkoako kostaldean Donostia inguruan zentratutako mapa
 
@@ -24,3 +24,8 @@ Bilboko Zabalgarbi eta Donostiako Rezolan dagoeneko martxan dauden eta Zubietan 
 ## Lizentzia
 
 Bisualizazio hau software librea da eta iturburu-kodeak [GNU General Public License v3](http://www.gnu.org/licenses/gpl.html) (GPL) lizentzia du.
+
+###Erabilitako liburutegien lizentziak
+
+* Leaflet (http://leafletjs.com/) -> [BSD-2-Clause](https://en.wikipedia.org/wiki/BSD_licenses#2-clause_license_.28.22Simplified_BSD_License.22_or_.22FreeBSD_License.22.29)
+* Leaflet-label (https://github.com/Leaflet/Leaflet.label) -> [MIT](https://en.wikipedia.org/wiki/MIT_License)
