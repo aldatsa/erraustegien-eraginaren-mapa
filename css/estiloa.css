@@ -50,9 +50,8 @@ html, body {
     font: 10px/16px "Helvetica Neue", Arial, Helvetica, sans-serif;
     font-weight: bold;
     padding: 2px 2px;
-    left: -6px;
+    left: -29px;
 }
 .leaflet-label::before, .leaflet-label::after {
-    top: 4px;
-    left: -7px;
+    content: none;
 }

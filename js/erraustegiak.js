@@ -59,7 +59,7 @@ Erraustegia.prototype.gehituEtiketak = function() {
 
         self.zirkuluak.forEach(function(element, index, array) {
 
-            self.gehituEtiketa(self.leaflet_zirkuluak[index].getBounds().getCenter().lat, self.leaflet_zirkuluak[index].getBounds().getEast(), element.distantzia);
+            self.gehituEtiketa(self.leaflet_zirkuluak[index].getBounds().getNorth(), self.leaflet_zirkuluak[index].getBounds().getCenter().lng, element.distantzia);
 
         });
     }
