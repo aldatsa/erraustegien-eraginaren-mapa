@@ -11,6 +11,14 @@ var Erraustegia = function(mapa, izena, koordenatuak, zirkuluak) {
     this.koordenatuak = koordenatuak;
     this.zirkuluak = zirkuluak;
 
+    this.ikonoa = L.icon({
+        iconUrl: 'img/erraustegia.png',
+
+        iconSize:     [40, 50], // size of the icon
+        iconAnchor:   [20, 30], // point of the icon which will correspond to marker's location
+    });
+
+    this.erraustegia = undefined;
     this.leaflet_zirkuluak = [];
     this.etiketak = [];
 
@@ -33,6 +41,12 @@ var Erraustegia = function(mapa, izena, koordenatuak, zirkuluak) {
             }
         }
     });
+};
+
+Erraustegia.prototype.marraztuErraustegia = function() {
+
+    this.erraustegia = L.marker(this.koordenatuak, {icon: this.ikonoa}).addTo(this.mapa);
+
 };
 
 Erraustegia.prototype.marraztuZirkuluak = function() {
@@ -74,6 +88,12 @@ Erraustegia.prototype.gehituEtiketa = function(lat, lng, distantzia) {
 
     this.mapa.showLabel(etiketa);
     this.etiketak.push(etiketa);
+
+};
+
+Erraustegia.prototype.ezabatuErraustegia = function() {
+
+    this.mapa.removeLayer(this.erraustegia);
 
 };
 
