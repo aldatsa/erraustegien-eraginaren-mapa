@@ -6,20 +6,20 @@ Bilboko Zabalgarbi eta Donostiako Rezolan dagoeneko martxan dauden eta Zubietan 
 
 ###Gipuzkoako kostaldean Donostia inguruan zentratutako mapa
 
-&lt;iframe width="680" height="600" src="http://aldatsa.eus/erraustegien-eraginaren-mapa/?lat=43.285496&lng=-2.029277" frameBorder="0" scrolling="no">&lt;/iframe>
-<iframe width="680" height="600" src="http://aldatsa.eus/erraustegien-eraginaren-mapa/?lat=43.285496&lng=-2.029277" frameBorder="0" scrolling="no"></iframe>
+&lt;iframe width="680" height="600" src="http://www.argia.eus/interaktiboak/2016-erraustegien-eraginpeko-zonaldeak/?lat=43.285496&lng=-2.029277" frameBorder="0" scrolling="no">&lt;/iframe>
+<iframe width="680" height="600" src="http://www.argia.eus/interaktiboak/2016-erraustegien-eraginpeko-zonaldeak/?lat=43.285496&lng=-2.029277" frameBorder="0" scrolling="no"></iframe>
 
 ### Bizkaian Bilbo inguruan zentratutako mapa
 
-&lt;iframe width="680" height="600" src="http://aldatsa.eus/erraustegien-eraginaren-mapa/?lat=43.25&lng=-2.97" frameBorder="0" scrolling="no">&lt;/iframe>
+&lt;iframe width="680" height="600" src="http://www.argia.eus/interaktiboak/2016-erraustegien-eraginpeko-zonaldeak/?lat=43.25&lng=-2.97" frameBorder="0" scrolling="no">&lt;/iframe>
 
-<iframe width="680" height="600" src="http://aldatsa.eus/erraustegien-eraginaren-mapa/?lat=43.25&lng=-2.97" frameBorder="0" scrolling="no"></iframe>
+<iframe width="680" height="600" src="http://www.argia.eus/interaktiboak/2016-erraustegien-eraginpeko-zonaldeak/?lat=43.25&lng=-2.97" frameBorder="0" scrolling="no"></iframe>
 
 ### Euskal kostalde osoa erakusten duen mapa
 
-&lt;iframe width="680" height="600" src="http://aldatsa.eus/erraustegien-eraginaren-mapa/?zoom=9?lat=43.5&lng=-2.4" frameBorder="0" scrolling="no">&lt;/iframe>
+&lt;iframe width="680" height="600" src="http://www.argia.eus/interaktiboak/2016-erraustegien-eraginpeko-zonaldeak/?zoom=9?lat=43.5&lng=-2.4" frameBorder="0" scrolling="no">&lt;/iframe>
 
-<iframe width="680" height="600" src="http://aldatsa.eus/erraustegien-eraginaren-mapa/?zoom=9?lat=43.5&lng=-2.4" frameBorder="0" scrolling="no"></iframe>
+<iframe width="680" height="600" src="http://www.argia.eus/interaktiboak/2016-erraustegien-eraginpeko-zonaldeak/?zoom=9?lat=43.5&lng=-2.4" frameBorder="0" scrolling="no"></iframe>
 
 ## Lizentzia
 
