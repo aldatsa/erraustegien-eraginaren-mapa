@@ -33,3 +33,4 @@ Bisualizazio hau software librea da eta iturburu-kodeak [GNU General Public Lice
 * Leaflet (http://leafletjs.com/) -> [BSD-2-Clause](https://en.wikipedia.org/wiki/BSD_licenses#2-clause_license_.28.22Simplified_BSD_License.22_or_.22FreeBSD_License.22.29)
 * Leaflet-label (https://github.com/Leaflet/Leaflet.label) -> [MIT](https://en.wikipedia.org/wiki/MIT_License)
 * Leaflet-fullscreen (https://github.com/Leaflet/Leaflet.fullscreen) -> [SCI](https://en.wikipedia.org/wiki/ISC_license)
+* Leaflet-control-window (https://github.com/mapshakers/leaflet-control-window) -> [MIT](https://en.wikipedia.org/wiki/MIT_License)
