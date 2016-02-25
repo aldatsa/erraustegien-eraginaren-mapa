@@ -18,7 +18,7 @@ html, body {
 #mapa {
     height: 100%;
 }
-#kredituak {
+.kredituak {
     position: absolute;
     bottom: 0px;
     left: 0px;
@@ -30,18 +30,18 @@ html, body {
     padding: 5px;
     text-align: center;
 }
-#kredituak #argia {
+.kredituak #argia {
     width: 75px;
 }
-#kredituak #iametza {
+.kredituak #iametza {
     width: 75px;
     margin-left: 15px;
 }
-#kredituak #egilea {
+.kredituak #egilea {
     padding-bottom: 3px;
     padding-top: 3px;
 }
-#kredituak a {
+.kredituak a {
     color: #e50000;
 }
 .leaflet-label {
