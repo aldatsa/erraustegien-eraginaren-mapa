@@ -5,6 +5,7 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="css/leaflet.css" />
         <link rel="stylesheet" href="css/leaflet.label.css" />
+        <link rel="stylesheet" href="css/leaflet.fullscreen.css" />
         <link rel="stylesheet" href="css/estiloa.css" />
     </head>
     <body>
@@ -25,6 +26,7 @@
         </div>
         <script src="js/leaflet.js"></script>
         <script src="js/leaflet.label.js"></script>
+        <script src="js/Leaflet.fullscreen.min.js"></script>
         <script src="js/erraustegiak.js"></script>
         <script src="js/analytics.js"></script>
         <script>
@@ -50,7 +52,9 @@
                 var lng = qs["lng"] ? parseFloat(qs["lng"]) : -2.478662;
                 var zoom = qs["zoom"] ? parseInt(qs["zoom"]) : 10;
 
-                var mapa = L.map('mapa').setView([lat, lng], zoom);
+                var mapa = L.map('mapa', {
+                    fullscreenControl: true
+                }).setView([lat, lng], zoom);
 
                 var zirkuluak = [{
                     distantzia: 5000,
