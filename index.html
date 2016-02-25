@@ -59,11 +59,6 @@
                 }];
 
                 var erraustegiak = {
-                    "Zubieta": {
-                        izena: "Zubieta",
-                        koordenatuak: [43.256308, -2.040659],
-                        erraustegia: {}
-                    },
                     "Rezola": {
                         izena: "Rezola",
                         koordenatuak: [43.285839, -1.997300],
@@ -72,6 +67,11 @@
                     "Zabalgarbi": {
                         izena: "Zabalgarbi",
                         koordenatuak: [43.250402, -2.968665],
+                        erraustegia: {}
+                    },
+                    "Zubieta": {
+                        izena: "Zubieta",
+                        koordenatuak: [43.256308, -2.040659],
                         erraustegia: {}
                     }
                 };
@@ -108,18 +108,18 @@
 
                     var div = L.DomUtil.create("div", "bistaratze-aukerak");
 
-                    div.innerHTML = "<div>" +
-                                        "<input type='checkbox' id='Zubieta' checked>" +
-                                        "<label for='Zubieta'>Zubieta</label>" +
-                                    "</div>" +
+                    var kontrolak = "";
+
+                    for (var gakoa in erraustegiak) {
+
+                        kontrolak = kontrolak +
                                     "<div>" +
-                                        "<input type='checkbox' id='Rezola' checked>" +
-                                        "<label for='Rezola'>Rezola</label>" +
-                                    "</div>" +
-                                    "<div>" +
-                                        "<input type='checkbox' id='Zabalgarbi' checked>" +
-                                        "<label for='Zabalgarbi'>Zabalgarbi</label>";
-                                    "</div>"
+                                        "<input type='checkbox' id='" + gakoa + "' checked>" +
+                                        "<label for='" + gakoa + "'>" + gakoa + "</label>" +
+                                    "</div>";
+                    }
+
+                    div.innerHTML = kontrolak;
 
                     return div;
                 };
