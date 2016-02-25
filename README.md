@@ -4,22 +4,25 @@ Bilboko Zabalgarbi eta Donostiako Rezolan dagoeneko martxan dauden eta Zubietan 
 
 ##Txertatu zure webgunean
 
+Erabil ditzakezun mapa guztiak ikusteko klikatu [hemen](http://www.argia.eus/interaktiboak/2016-erraustegien-eraginpeko-zonaldeen-mapak).
+
 ###Gipuzkoako kostaldean Donostia inguruan zentratutako mapa
 
-&lt;iframe allowfullscreen="allowfullscreen" width="680" height="600" src="http://www.argia.eus/interaktiboak/2016-erraustegien-eraginpeko-zonaldeak/?lat=43.285496&lng=-2.029277" frameBorder="0" scrolling="no">&lt;/iframe>
+```
 <iframe allowfullscreen="allowfullscreen" width="680" height="600" src="http://www.argia.eus/interaktiboak/2016-erraustegien-eraginpeko-zonaldeak/?lat=43.285496&lng=-2.029277" frameBorder="0" scrolling="no"></iframe>
+```
 
 ### Bizkaian Bilbo inguruan zentratutako mapa
 
-&lt;iframe allowfullscreen="allowfullscreen" width="680" height="600" src="http://www.argia.eus/interaktiboak/2016-erraustegien-eraginpeko-zonaldeak/?lat=43.25&lng=-2.97" frameBorder="0" scrolling="no">&lt;/iframe>
-
+```
 <iframe allowfullscreen="allowfullscreen" width="680" height="600" src="http://www.argia.eus/interaktiboak/2016-erraustegien-eraginpeko-zonaldeak/?lat=43.25&lng=-2.97" frameBorder="0" scrolling="no"></iframe>
+```
 
 ### Euskal kostalde osoa erakusten duen mapa
 
-&lt;iframe allowfullscreen="allowfullscreen" width="680" height="600" src="http://www.argia.eus/interaktiboak/2016-erraustegien-eraginpeko-zonaldeak/?zoom=9?lat=43.5&lng=-2.4" frameBorder="0" scrolling="no">&lt;/iframe>
-
+```
 <iframe allowfullscreen="allowfullscreen" width="680" height="600" src="http://www.argia.eus/interaktiboak/2016-erraustegien-eraginpeko-zonaldeak/?zoom=9?lat=43.5&lng=-2.4" frameBorder="0" scrolling="no"></iframe>
+```
 
 ## Lizentzia
 
