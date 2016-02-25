@@ -10,14 +10,6 @@
         <link rel="stylesheet" href="css/estiloa.css" />
     </head>
     <body>
-        <div id="bistaratze-aukerak">
-            <label for="Zubieta">Zubieta</label>
-            <input type="checkbox" id="Zubieta" checked>
-            <label for="Rezola">Rezola</label>
-            <input type="checkbox" id="Rezola" checked>
-            <label for="Zabalgarbi">Zabalgarbi</label>
-            <input type="checkbox" id="Zabalgarbi" checked>
-        </div>
         <div id="mapa"></div>
         <script src="js/leaflet.js"></script>
         <script src="js/leaflet.label.js"></script>
@@ -96,7 +88,7 @@
                 //
                 var kredituak = L.control({position: 'bottomleft'});
 
-                kredituak.onAdd = function (map) {
+                kredituak.onAdd = function (mapa) {
                     var div = L.DomUtil.create('div', 'kredituak');
 
                     div.innerHTML = '<div>' +
@@ -109,6 +101,30 @@
                 };
 
                 kredituak.addTo(mapa);
+
+                var bistaratze_aukerak = L.control({position: "topright"});
+
+                bistaratze_aukerak.onAdd = function(mapa) {
+
+                    var div = L.DomUtil.create("div", "bistaratze-aukerak");
+
+                    div.innerHTML = "<div>" +
+                                        "<input type='checkbox' id='Zubieta' checked>" +
+                                        "<label for='Zubieta'>Zubieta</label>" +
+                                    "</div>" +
+                                    "<div>" +
+                                        "<input type='checkbox' id='Rezola' checked>" +
+                                        "<label for='Rezola'>Rezola</label>" +
+                                    "</div>" +
+                                    "<div>" +
+                                        "<input type='checkbox' id='Zabalgarbi' checked>" +
+                                        "<label for='Zabalgarbi'>Zabalgarbi</label>";
+                                    "</div>"
+
+                    return div;
+                };
+
+                bistaratze_aukerak.addTo(mapa);
 
                 //
                 var txertatzeko = L.control({position: 'topleft'});
@@ -129,7 +145,7 @@
                                      "<textarea>&lt;iframe allowfullscreen='allowfullscreen' width='680' height='600' src='http://www.argia.eus/interaktiboak/2016-erraustegien-eraginpeko-zonaldeak/?lat=" + lat + "&lng=" + lng + "&zoom=" + zoom + "' frameBorder='0' scrolling='no'>&lt;/iframe></textarea>",
                             modal: true
                         });
-                        
+
                         txertatzeko_kodearen_leihoa.show();
                     });
 
