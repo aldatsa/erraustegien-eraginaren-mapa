@@ -24,17 +24,17 @@ html, body {
     left: 0px;
     z-index: 1;
     background-color: #fff;
-    width: 275px;
-    font-size: 12px;
+    width: 170px;
+    font-size: 10px;
     font-family: Arial,Helvetica,sans-serif;
     padding: 5px;
     text-align: center;
 }
 #kredituak #argia {
-    width: 125px;
+    width: 75px;
 }
 #kredituak #iametza {
-    width: 125px;
+    width: 75px;
     margin-left: 15px;
 }
 #kredituak #egilea {
