@@ -110,22 +110,26 @@
 
                 kredituak.addTo(mapa);
 
-                var txertatzeko_kodearen_leihoa =  L.control.window(mapa, {
-                    title: "Txertatzeko kodea",
-                    content: "<p>Mapa hau zure webgunean bistaratu nahi baduzu erabili txertatzeko kode hau:</p>" +
-                             "<textarea>&lt;iframe allowfullscreen='allowfullscreen' width='680' height='600' src='http://www.argia.eus/interaktiboak/2016-erraustegien-eraginpeko-zonaldeak/?lat=" + lat + "&lng=" + lng + "&zoom=" + zoom + "' frameBorder='0' scrolling='no'>&lt;/iframe></textarea>",
-                    modal: true
-                });
-
                 //
                 var txertatzeko = L.control({position: 'topleft'});
 
                 txertatzeko.onAdd = function (map) {
+
                     var div = L.DomUtil.create("div", "leaflet-bar txertatzeko-kodea");
 
                     div.innerHTML = "<a title='Txertatu mapa hau zure webgunean' href='#'></a>";
 
-                    L.DomEvent.on(div, "click", function() {
+                    L.DomEvent.on(div, "click", function(event) {
+
+                        event.preventDefault();
+
+                        var txertatzeko_kodearen_leihoa =  L.control.window(mapa, {
+                            title: "Txertatzeko kodea",
+                            content: "<p>Mapa hau zure webgunean bistaratu nahi baduzu erabili txertatzeko kode hau:</p>" +
+                                     "<textarea>&lt;iframe allowfullscreen='allowfullscreen' width='680' height='600' src='http://www.argia.eus/interaktiboak/2016-erraustegien-eraginpeko-zonaldeak/?lat=" + lat + "&lng=" + lng + "&zoom=" + zoom + "' frameBorder='0' scrolling='no'>&lt;/iframe></textarea>",
+                            modal: true
+                        });
+                        
                         txertatzeko_kodearen_leihoa.show();
                     });
 
