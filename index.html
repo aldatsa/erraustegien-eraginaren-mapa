@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="css/leaflet.css" />
         <link rel="stylesheet" href="css/leaflet.label.css" />
         <link rel="stylesheet" href="css/leaflet.fullscreen.css" />
+        <link rel="stylesheet" href="css/L.Control.Window.css" />
         <link rel="stylesheet" href="css/estiloa.css" />
     </head>
     <body>
@@ -21,6 +22,7 @@
         <script src="js/leaflet.js"></script>
         <script src="js/leaflet.label.js"></script>
         <script src="js/Leaflet.fullscreen.min.js"></script>
+        <script src="js/L.Control.Window.js"></script>
         <script src="js/erraustegiak.js"></script>
         <script src="js/analytics.js"></script>
         <script>
@@ -108,6 +110,13 @@
 
                 kredituak.addTo(mapa);
 
+                var txertatzeko_kodearen_leihoa =  L.control.window(mapa, {
+                    title: "Txertatzeko kodea",
+                    content: "<p>Mapa hau zure webgunean bistaratu nahi baduzu erabili txertatzeko kode hau:</p>" +
+                             "<textarea>&lt;iframe allowfullscreen='allowfullscreen' width='680' height='600' src='http://www.argia.eus/interaktiboak/2016-erraustegien-eraginpeko-zonaldeak/?lat=" + lat + "&lng=" + lng + "&zoom=" + zoom + "' frameBorder='0' scrolling='no'>&lt;/iframe></textarea>",
+                    modal: true
+                });
+
                 //
                 var txertatzeko = L.control({position: 'topleft'});
 
@@ -115,6 +124,10 @@
                     var div = L.DomUtil.create("div", "leaflet-bar txertatzeko-kodea");
 
                     div.innerHTML = "<a title='Txertatu mapa hau zure webgunean' href='#'></a>";
+
+                    L.DomEvent.on(div, "click", function() {
+                        txertatzeko_kodearen_leihoa.show();
+                    });
 
                     return div;
                 };
