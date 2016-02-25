@@ -44,6 +44,10 @@ html, body {
 .kredituak a {
     color: #e50000;
 }
+.txertatzeko-kodea a {
+    background: #fff url(txertatzeko.png) no-repeat 0 0;
+    background-size: 26px 26px;
+}
 .leaflet-label {
     border-color: #f03;
     border-width: 3px;

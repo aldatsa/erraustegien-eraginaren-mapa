@@ -108,6 +108,19 @@
 
                 kredituak.addTo(mapa);
 
+                //
+                var txertatzeko = L.control({position: 'topleft'});
+
+                txertatzeko.onAdd = function (map) {
+                    var div = L.DomUtil.create("div", "leaflet-bar txertatzeko-kodea");
+
+                    div.innerHTML = "<a title='Txertatu mapa hau zure webgunean' href='#'></a>";
+
+                    return div;
+                };
+
+                txertatzeko.addTo(mapa);
+
                 for (var gakoa in erraustegiak) {
 
                     erraustegiak[gakoa].erraustegia = new Erraustegia(mapa, erraustegiak[gakoa].izena, erraustegiak[gakoa].koordenatuak, zirkuluak);
