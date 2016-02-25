@@ -7,6 +7,10 @@
 .txertatzeko-kodea {
     margin: 15px 0px 30px 0px;
 }
+.txertatzeko-kodea div {
+    font-size: 14px;
+}
 .txertatzeko-kodea textarea {
     width: 680px;
+    font-size: 12px;
 }
