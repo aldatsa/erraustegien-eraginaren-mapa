@@ -3,8 +3,12 @@ html, body {
     margin: 0px;
 }
 .bistaratze-aukerak {
-    width: 100px;
     background-color: #fff;
+    background-color: #fff;
+    padding: 0px 4px 0px 0px;
+}
+.bistaratze-aukerak label {
+    vertical-align: text-bottom;
 }
 #mapa {
     height: 100%;
