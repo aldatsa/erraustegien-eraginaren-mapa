@@ -34,7 +34,7 @@ Erabil ditzakezun mapa guztiak ikusteko klikatu [hemen](http://www.argia.eus/int
 
 Bisualizazio hau software librea da eta iturburu-kodeak [GNU General Public License v3](http://www.gnu.org/licenses/gpl.html) (GPL) lizentzia du.
 
-Euskal Herria eta bere herrialdeen mugak marrazteko erabilitako topoJSON fitxategiak [Creative Commons Attribution-ShareAlike 4.0 International](http://creativecommons.org/licenses/by-sa/4.0/) lizentzia dauka eta [Gaindegia](http://www.gaindegia.eus/)ren [Euskalgeo](http://euskalgeo.net/) webguneko datu espazialetan oinarrituta daude.
+Euskal Herria eta bere herrialdeen mugak marrazteko erabilitako topoJSON fitxategiak [Creative Commons Attribution-ShareAlike 4.0 International](http://creativecommons.org/licenses/by-sa/4.0/) lizentzia dauka eta [Gaindegia](http://www.gaindegia.eus/)ren [Euskalgeo](http://euskalgeo.net/) webguneko datu espazialetan oinarrituta dago.
 
 <a rel="license" href="http://www.gnu.org/licenses/gpl.html"><img alt="GNU General Public License version 3" style="border-width:0" src="http://www.gnu.org/graphics/gplv3-127x51.png" /></a>
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
