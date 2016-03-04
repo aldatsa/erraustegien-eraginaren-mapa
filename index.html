@@ -70,6 +70,11 @@
                 var lng = qs["lng"] ? parseFloat(qs["lng"]) : -2.478662;
                 var zoom = qs["zoom"] ? parseInt(qs["zoom"]) : 10;
 
+                // Zein erraustegi bistaratu behar diren. Ez bada besterik esaten guztiak (atzerakako bateragarritasuna mantentzeko).
+                // Array lehenetsia eskuz sartzea ez da oso dotorea. Horren ondorioz bi lekutan sartu behar da erraustegien zerrenda,
+                // hemen eta erraustegiak aldagaian. Bateratzea komeni da.
+                var zein = qs["zein"] ? qs["zein"].split(",") : ["Añorga", "Arrigorriaga", "Benesse-Maremne", "Lemoa", "Zabalgarbi", "Zubieta"];
+
                 var mapa = L.map('mapa', {
                     fullscreenControl: true
                 }).setView([lat, lng], zoom);
@@ -159,11 +164,22 @@
 
                     var kontrolak = "";
 
+                    var checked = "";
+
                     for (var gakoa in erraustegiak) {
+
+                        checked = "";
+
+                        // Erraustegia bistaratu behar da?
+                        if (zein.indexOf(gakoa) > -1) {
+
+                            checked = " checked";
+
+                        }
 
                         kontrolak = kontrolak +
                                     "<span>" +
-                                        "<input type='checkbox' id='" + gakoa + "' checked>" +
+                                        "<input type='checkbox' id='" + gakoa + "'" + checked + ">" +
                                         "<label for='" + gakoa + "'>" + gakoa + "</label>" +
                                     "</span>";
                     }
@@ -207,9 +223,14 @@
 
                     erraustegiak[gakoa].erraustegia = new Erraustegia(mapa, erraustegiak[gakoa].izena, erraustegiak[gakoa].koordenatuak, zirkuluak);
 
-                    erraustegiak[gakoa].erraustegia.marraztuErraustegia();
-                    erraustegiak[gakoa].erraustegia.marraztuZirkuluak();
-                    erraustegiak[gakoa].erraustegia.gehituEtiketak();
+                    // Erraustegia bistaratu behar da?
+                    if (zein.indexOf(gakoa) > -1) {
+
+                        erraustegiak[gakoa].erraustegia.marraztuErraustegia();
+                        erraustegiak[gakoa].erraustegia.marraztuZirkuluak();
+                        erraustegiak[gakoa].erraustegia.gehituEtiketak();
+
+                    }
 
                     (function(gakoa) {
                         document.getElementById(gakoa).addEventListener("click", function(event) {
