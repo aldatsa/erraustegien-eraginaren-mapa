@@ -91,27 +91,6 @@ var ErraustegienMapa = (function() {
 
             }
 
-            if (aukerak.erraustegien_kontrolak) {
-
-                (function(gakoa) {
-
-                    document.getElementById(gakoa).addEventListener("click", function(event) {
-
-                        var checkbox = event.target;
-
-                        if (checkbox.checked) {
-                            erraustegiak[gakoa].erraustegia.marraztuErraustegia();
-                            erraustegiak[gakoa].erraustegia.marraztuZirkuluak();
-                            erraustegiak[gakoa].erraustegia.gehituEtiketak();
-                        } else {
-                            erraustegiak[gakoa].erraustegia.ezabatuErraustegia();
-                            erraustegiak[gakoa].erraustegia.ezabatuZirkuluak();
-                            erraustegiak[gakoa].erraustegia.ezabatuEtiketak();
-                        }
-                    });
-                })(gakoa);
-
-            }
         }
 
         return mapa;
@@ -208,6 +187,27 @@ var ErraustegienMapa = (function() {
 
         erraustegien_kontrolak.addTo(mapa);
 
+        // Sortu ditugun kontrolei klik gertaeraren maneiatzailea gehituko diegu.
+        for (var gakoa in erraustegiak) {
+
+            (function(gakoa) {
+
+                document.getElementById(gakoa).addEventListener("click", function(event) {
+
+                    var checkbox = event.target;
+
+                    if (checkbox.checked) {
+                        erraustegiak[gakoa].erraustegia.marraztuErraustegia();
+                        erraustegiak[gakoa].erraustegia.marraztuZirkuluak();
+                        erraustegiak[gakoa].erraustegia.gehituEtiketak();
+                    } else {
+                        erraustegiak[gakoa].erraustegia.ezabatuErraustegia();
+                        erraustegiak[gakoa].erraustegia.ezabatuZirkuluak();
+                        erraustegiak[gakoa].erraustegia.ezabatuEtiketak();
+                    }
+                });
+            })(gakoa);
+        }
     }
 
     function bistaratuTxertatzekoBotoia() {
