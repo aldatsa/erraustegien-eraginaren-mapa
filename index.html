@@ -78,6 +78,16 @@
 
                 var mapa = ErraustegienMapa.sortu("mapa", lat, lng, zoom);
 
+                ErraustegienMapa.gehituKredituak("bottomleft",
+                                                 "kredituak",
+                                                 "<div>" +
+                                                    "<a href='http://www.argia.eus/' target='_blank'><img id='argia' src='img/argia.jpg'></a>" +
+                                                    "<a href='http://www.iametza.eus/' target='_blank'><img id='iametza' src='img/iametza.png'></a>" +
+                                                    "<div id='egilea'><strong>Asier Iturralde Sarasola</strong> <a href='http://aldatsa.eus' target='_blank'>@aldatsa</a></div>" +
+                                                    "<div><a href='https://github.com/aldatsa/erraustegien-eraginpeko-zonaldeak' target='_blank'>Iturburu kodea (GNU GPLv3)</a></div>" +
+                                                 "</div>"
+                );
+
                 var zirkuluak = [{
                     distantzia: 5000,
                     opakotasuna: 0.15,
@@ -128,23 +138,6 @@
                         erraustegia: {}
                     }
                 };
-
-                //
-                var kredituak = L.control({position: 'bottomleft'});
-
-                kredituak.onAdd = function (mapa) {
-                    var div = L.DomUtil.create('div', 'kredituak');
-
-                    div.innerHTML = '<div>' +
-                                        '<a href="http://www.argia.eus/" target="_blank"><img id="argia" src="img/argia.jpg"></a>' +
-                                        '<a href="http://www.iametza.eus/" target="_blank"><img id="iametza" src="img/iametza.png"></a>' +
-                                        '<div id="egilea"><strong>Asier Iturralde Sarasola</strong> <a href="http://aldatsa.eus" target="_blank">@aldatsa</a></div>' +
-                                        '<div><a href="https://github.com/aldatsa/erraustegien-eraginpeko-zonaldeak" target="_blank">Iturburu kodea (GNU GPLv3)</a></div>' +
-                                    '</div>';
-                    return div;
-                };
-
-                kredituak.addTo(mapa);
 
                 var bistaratze_aukerak = L.control({position: "topright"});
 

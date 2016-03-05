@@ -24,8 +24,26 @@ var ErraustegienMapa = (function() {
 
     }
 
+    function gehituKredituak(kokapena, klasea, html) {
+
+        var kredituak = L.control({position: kokapena});
+
+        kredituak.onAdd = function (mapa) {
+
+            var div = L.DomUtil.create('div', klasea);
+
+            div.innerHTML = html;
+
+            return div;
+        };
+
+        kredituak.addTo(mapa);
+
+    }
+
     return {
-        sortu: sortu
+        sortu: sortu,
+        gehituKredituak: gehituKredituak
     };
-    
+
 })();
