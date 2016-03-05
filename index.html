@@ -74,7 +74,8 @@
                 };
 
                 var mapa = ErraustegienMapa.sortu("mapa", erraustegiak, zirkuluak, {
-                    erraustegien_kontrolak: true
+                    erraustegien_kontrolak: true,
+                    txertatzeko_botoia: true
                 });
 
                 ErraustegienMapa.gehituKredituak("bottomleft",
@@ -86,8 +87,6 @@
                                                     "<div><a href='https://github.com/aldatsa/erraustegien-eraginpeko-zonaldeak' target='_blank'>Iturburu kodea (GNU GPLv3)</a></div>" +
                                                  "</div>"
                 );
-
-                ErraustegienMapa.bistaratuTxertatzekoBotoia();
 
                 ErraustegienMapa.bistaratuEH();
 

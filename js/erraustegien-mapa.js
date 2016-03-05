@@ -67,7 +67,14 @@ var ErraustegienMapa = (function() {
 
         }
 
+        if (aukerak.txertatzeko_botoia) {
+
+            gehituTxertatzekoBotoia();
+
+        }
+
         gehituErraustegiak();
+
 
     }
 
@@ -220,7 +227,7 @@ var ErraustegienMapa = (function() {
         }
     }
 
-    function bistaratuTxertatzekoBotoia() {
+    function gehituTxertatzekoBotoia() {
 
         txertatzeko_botoia = L.control({position: 'topleft'});
 
@@ -254,8 +261,7 @@ var ErraustegienMapa = (function() {
     return {
         sortu: sortu,
         gehituKredituak: gehituKredituak,
-        bistaratuEH: bistaratuEH,
-        bistaratuTxertatzekoBotoia: bistaratuTxertatzekoBotoia
+        bistaratuEH: bistaratuEH
     };
 
 })();
