@@ -67,22 +67,7 @@ var ErraustegienMapa = (function() {
 
         }
 
-        for (var gakoa in erraustegiak) {
-
-            erraustegiak[gakoa].erraustegia = new Erraustegia(mapa, erraustegiak[gakoa].izena, erraustegiak[gakoa].koordenatuak, zirkuluak);
-
-            // Erraustegia bistaratu behar da?
-            if (zein.indexOf(gakoa) > -1) {
-
-                erraustegiak[gakoa].erraustegia.marraztuErraustegia();
-                erraustegiak[gakoa].erraustegia.marraztuZirkuluak();
-                erraustegiak[gakoa].erraustegia.gehituEtiketak();
-
-            }
-
-        }
-
-        return mapa;
+        gehituErraustegiak();
 
     }
 
@@ -100,7 +85,26 @@ var ErraustegienMapa = (function() {
         });
 
         MapQuestOpen_OSM.addTo(mapa);
-        
+
+    }
+
+    function gehituErraustegiak() {
+
+        for (var gakoa in erraustegiak) {
+
+            erraustegiak[gakoa].erraustegia = new Erraustegia(mapa, erraustegiak[gakoa].izena, erraustegiak[gakoa].koordenatuak, zirkuluak);
+
+            // Erraustegia bistaratu behar da?
+            if (zein.indexOf(gakoa) > -1) {
+
+                erraustegiak[gakoa].erraustegia.marraztuErraustegia();
+                erraustegiak[gakoa].erraustegia.marraztuZirkuluak();
+                erraustegiak[gakoa].erraustegia.gehituEtiketak();
+
+            }
+
+        }
+
     }
 
     function gehituKredituak(kokapena, klasea, html) {
