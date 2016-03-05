@@ -5,12 +5,16 @@ var ErraustegienMapa = (function() {
     var mapa,
         MapQuestOpen_OSM,
         geruzaEH,
+        erraustegien_kontrolak,
+        txertatzeko_botoia,
         lat = 43.183376,
         lng = -2.478662,
         zoom = 10,
         // Zein erraustegi bistaratu behar diren. Ez bada besterik esaten guztiak (atzerakako bateragarritasuna mantentzeko).
         // Array lehenetsia eskuz sartzea ez da oso dotorea. Horren ondorioz bi lekutan sartu behar da erraustegien zerrenda,
         // hemen eta erraustegiak aldagaian. Bateratzea komeni da.
+        erraustegiak = "kaio",
+        zirkuluak,
         zein = ["Añorga", "Arrigorriaga", "Benesse-Maremne", "Lemoa", "Zabalgarbi", "Zubieta"];
 
     // http://blog.webkid.io/maps-with-leaflet-and-topojson/
@@ -42,7 +46,7 @@ var ErraustegienMapa = (function() {
         return b;
     }
 
-    function sortu(id) {
+    function sortu(id, erraustegiak, zirkuluak, aukerak) {
 
         var url_parametroak = eskuratuURLParametroak(window.location.search.substr(1).split('&'));
 
@@ -50,6 +54,9 @@ var ErraustegienMapa = (function() {
         lng = url_parametroak.lng ? parseFloat(url_parametroak.lng) : lng;
         zoom = url_parametroak.zoom ? parseInt(url_parametroak.zoom) : zoom;
         zein = url_parametroak.zein ? url_parametroak.zein.split(",") : zein;
+
+        erraustegiak = erraustegiak;
+        zirkuluak = zirkuluak;
 
         mapa = L.map(id, {
             fullscreenControl: true
@@ -63,6 +70,50 @@ var ErraustegienMapa = (function() {
         });
 
         MapQuestOpen_OSM.addTo(mapa);
+
+        if (aukerak.erraustegien_kontrolak) {
+
+            // Zergatik ez du hartzen objektu honetako erraustegiak aldagaiaren balioa?
+            // Hartuko balu ez nuke hemen pasa beharrik izango.
+            bistaratuErraustegienKontrolak(erraustegiak);
+
+        }
+
+        for (var gakoa in erraustegiak) {
+
+            erraustegiak[gakoa].erraustegia = new Erraustegia(mapa, erraustegiak[gakoa].izena, erraustegiak[gakoa].koordenatuak, zirkuluak);
+
+            // Erraustegia bistaratu behar da?
+            if (zein.indexOf(gakoa) > -1) {
+
+                erraustegiak[gakoa].erraustegia.marraztuErraustegia();
+                erraustegiak[gakoa].erraustegia.marraztuZirkuluak();
+                erraustegiak[gakoa].erraustegia.gehituEtiketak();
+
+            }
+
+            if (aukerak.erraustegien_kontrolak) {
+
+                (function(gakoa) {
+
+                    document.getElementById(gakoa).addEventListener("click", function(event) {
+
+                        var checkbox = event.target;
+
+                        if (checkbox.checked) {
+                            erraustegiak[gakoa].erraustegia.marraztuErraustegia();
+                            erraustegiak[gakoa].erraustegia.marraztuZirkuluak();
+                            erraustegiak[gakoa].erraustegia.gehituEtiketak();
+                        } else {
+                            erraustegiak[gakoa].erraustegia.ezabatuErraustegia();
+                            erraustegiak[gakoa].erraustegia.ezabatuZirkuluak();
+                            erraustegiak[gakoa].erraustegia.ezabatuEtiketak();
+                        }
+                    });
+                })(gakoa);
+
+            }
+        }
 
         return mapa;
 
@@ -121,10 +172,81 @@ var ErraustegienMapa = (function() {
 
     }
 
+    function bistaratuErraustegienKontrolak(erraustegiak) {
+
+        erraustegien_kontrolak = L.control({position: "topright"});
+
+        erraustegien_kontrolak.onAdd = function(mapa) {
+
+            var div = L.DomUtil.create("div", "bistaratze-aukerak leaflet-bar");
+
+            var kontrolak = "";
+
+            var checked = "";
+            
+            for (var gakoa in erraustegiak) {
+
+                checked = "";
+
+                // Erraustegia bistaratu behar da?
+                if (zein.indexOf(gakoa) > -1) {
+
+                    checked = " checked";
+
+                }
+
+                kontrolak = kontrolak +
+                            "<span>" +
+                                "<input type='checkbox' id='" + gakoa + "'" + checked + ">" +
+                                "<label for='" + gakoa + "'>" + gakoa + "</label>" +
+                            "</span>";
+            }
+
+            div.innerHTML = kontrolak;
+
+            return div;
+        };
+
+        erraustegien_kontrolak.addTo(mapa);
+
+    }
+
+    function bistaratuTxertatzekoBotoia() {
+
+        txertatzeko_botoia = L.control({position: 'topleft'});
+
+        txertatzeko_botoia.onAdd = function (map) {
+
+            var div = L.DomUtil.create("div", "leaflet-bar txertatzeko-kodea");
+
+            div.innerHTML = "<a title='Txertatu mapa hau zure webgunean' href='#'></a>";
+
+            L.DomEvent.on(div, "click", function(event) {
+
+                event.preventDefault();
+
+                var txertatzeko_kodearen_leihoa =  L.control.window(mapa, {
+                    title: "Txertatzeko kodea",
+                    content: "<p>Mapa hau zure webgunean bistaratu nahi baduzu erabili txertatzeko kode hau:</p>" +
+                             "<textarea>&lt;iframe allowfullscreen='allowfullscreen' width='680' height='600' src='http://www.argia.eus/interaktiboak/2016-erraustegien-eraginpeko-zonaldeak/?lat=" + lat + "&lng=" + lng + "&zoom=" + zoom + "' frameBorder='0' scrolling='no'>&lt;/iframe></textarea>",
+                    modal: true
+                });
+
+                txertatzeko_kodearen_leihoa.show();
+            });
+
+            return div;
+        };
+
+        txertatzeko_botoia.addTo(mapa);
+
+    }
+
     return {
         sortu: sortu,
         gehituKredituak: gehituKredituak,
-        bistaratuEH: bistaratuEH
+        bistaratuEH: bistaratuEH,
+        bistaratuTxertatzekoBotoia: bistaratuTxertatzekoBotoia
     };
 
 })();
