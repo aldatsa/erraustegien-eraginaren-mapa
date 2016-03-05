@@ -73,6 +73,12 @@ var ErraustegienMapa = (function() {
 
         }
 
+        if (aukerak.bistaratu_Euskal_Herria) {
+
+            gehituEuskalHerria();
+
+        }
+
         gehituErraustegiak();
 
 
@@ -146,7 +152,7 @@ var ErraustegienMapa = (function() {
         xobj.send(null);
     }
 
-    function bistaratuEH() {
+    function gehituEuskalHerria() {
 
         kargatuJSON("topoJSON/herrialdeak.topo.json", function(response) {
 
@@ -260,8 +266,7 @@ var ErraustegienMapa = (function() {
 
     return {
         sortu: sortu,
-        gehituKredituak: gehituKredituak,
-        bistaratuEH: bistaratuEH
+        gehituKredituak: gehituKredituak
     };
 
 })();
