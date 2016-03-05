@@ -59,16 +59,7 @@ var ErraustegienMapa = (function() {
 
         zirkuluak = zirkuluen_datuak;
 
-        mapa = L.map(id, {
-            fullscreenControl: true
-        }).setView([lat, lng], zoom);
-
-        MapQuestOpen_OSM = L.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/{type}/{z}/{x}/{y}.{ext}', {
-            type: 'map',
-            ext: 'jpg',
-            attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/">MapQuest</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-            subdomains: '1234'
-        });
+        sortuMapa(id);
 
         MapQuestOpen_OSM.addTo(mapa);
 
@@ -95,6 +86,20 @@ var ErraustegienMapa = (function() {
 
         return mapa;
 
+    }
+
+    function sortuMapa(id) {
+
+        mapa = L.map(id, {
+            fullscreenControl: true
+        }).setView([lat, lng], zoom);
+
+        MapQuestOpen_OSM = L.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/{type}/{z}/{x}/{y}.{ext}', {
+            type: 'map',
+            ext: 'jpg',
+            attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/">MapQuest</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+            subdomains: '1234'
+        });
     }
 
     function gehituKredituak(kokapena, klasea, html) {
