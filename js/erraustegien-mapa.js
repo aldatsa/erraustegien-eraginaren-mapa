@@ -3,7 +3,22 @@ var ErraustegienMapa = (function() {
     "use strict";
 
     var mapa,
-        MapQuestOpen_OSM;
+        MapQuestOpen_OSM,
+        geruzaEH;
+
+    // http://blog.webkid.io/maps-with-leaflet-and-topojson/
+    L.TopoJSON = L.GeoJSON.extend({
+        addData: function(jsonData) {
+            if (jsonData.type === "Topology") {
+                for (var key in jsonData.objects) {
+                    var geojson = topojson.feature(jsonData, jsonData.objects[key]);
+                    L.GeoJSON.prototype.addData.call(this, geojson);
+                }
+            } else {
+                L.GeoJSON.prototype.addData.call(this, jsonData);
+            }
+        }
+    });
 
     function sortu(id, lat, lng, zoom) {
 
@@ -41,9 +56,46 @@ var ErraustegienMapa = (function() {
 
     }
 
+    // http://codepen.io/KryptoniteDove/post/load-json-file-locally-using-pure-javascript
+    function kargatuJSON(file, callback) {
+
+        var xobj = new XMLHttpRequest();
+            xobj.overrideMimeType("application/json");
+        xobj.open('GET', file, true); // Replace 'my_data' with the path to your file
+        xobj.onreadystatechange = function () {
+              if (xobj.readyState == 4 && xobj.status == "200") {
+                // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+                callback(xobj.responseText);
+              }
+        };
+        xobj.send(null);
+    }
+
+    function bistaratuEH() {
+
+        kargatuJSON("topoJSON/herrialdeak.topo.json", function(response) {
+
+            // TopoJSON objektua analizatu testu-kate bihurtzeko.
+            var datuak = JSON.parse(response);
+
+            geruzaEH = new L.TopoJSON(datuak, {
+                style: function (feature) {
+                    return {
+                        color: "#555",
+                        opacity: 1,
+                        "fillOpacity": 0,
+                        weight: 2
+                    };
+                }
+            }).addTo(mapa);
+        });
+
+    }
+
     return {
         sortu: sortu,
-        gehituKredituak: gehituKredituak
+        gehituKredituak: gehituKredituak,
+        bistaratuEH: bistaratuEH
     };
 
 })();

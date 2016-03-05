@@ -22,35 +22,6 @@
         <script>
             (function() {
 
-                // http://codepen.io/KryptoniteDove/post/load-json-file-locally-using-pure-javascript
-                function loadJSON(file, callback) {
-
-                    var xobj = new XMLHttpRequest();
-                        xobj.overrideMimeType("application/json");
-                    xobj.open('GET', file, true); // Replace 'my_data' with the path to your file
-                    xobj.onreadystatechange = function () {
-                          if (xobj.readyState == 4 && xobj.status == "200") {
-                            // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
-                            callback(xobj.responseText);
-                          }
-                    };
-                    xobj.send(null);
-                };
-
-                // http://blog.webkid.io/maps-with-leaflet-and-topojson/
-                L.TopoJSON = L.GeoJSON.extend({
-                    addData: function(jsonData) {
-                        if (jsonData.type === "Topology") {
-                            for (key in jsonData.objects) {
-                                geojson = topojson.feature(jsonData, jsonData.objects[key]);
-                                L.GeoJSON.prototype.addData.call(this, geojson);
-                            }
-                        } else {
-                            L.GeoJSON.prototype.addData.call(this, jsonData);
-                        }
-                    }
-                });
-
                 // URLaren parametroak eskuratzeko funtzioa.
                 // http://stackoverflow.com/a/3855394/2855012
                 var qs = (function(a) {
@@ -233,23 +204,8 @@
                     })(gakoa);
                 }
 
-                var topoLayer = new L.TopoJSON();
+                ErraustegienMapa.bistaratuEH();
 
-                loadJSON("topoJSON/herrialdeak.topo.json", function(response) {
-                    // Parse JSON string into object
-                    var data = JSON.parse(response);
-
-                    var topoLayer = new L.TopoJSON(data, {
-                        style: function (feature) {
-                            return {
-                                color: "#555",
-                                opacity: 1,
-                                "fillOpacity": 0,
-                                weight: 2
-                            };
-                        }
-                    }).addTo(mapa);
-                });
             })();
         </script>
     </body>
