@@ -16,6 +16,7 @@
         <script src="js/Leaflet.fullscreen.min.js"></script>
         <script src="js/L.Control.Window.js"></script>
         <script src="js/topojson.v1.min.js"></script>
+        <script src="js/erraustegien-mapa.js"></script>
         <script src="js/erraustegiak.js"></script>
         <script src="js/analytics.js"></script>
         <script>
@@ -75,9 +76,7 @@
                 // hemen eta erraustegiak aldagaian. Bateratzea komeni da.
                 var zein = qs["zein"] ? qs["zein"].split(",") : ["Añorga", "Arrigorriaga", "Benesse-Maremne", "Lemoa", "Zabalgarbi", "Zubieta"];
 
-                var mapa = L.map('mapa', {
-                    fullscreenControl: true
-                }).setView([lat, lng], zoom);
+                var mapa = ErraustegienMapa.sortu("mapa", lat, lng, zoom);
 
                 var zirkuluak = [{
                     distantzia: 5000,
@@ -129,15 +128,6 @@
                         erraustegia: {}
                     }
                 };
-
-                var MapQuestOpen_OSM = L.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/{type}/{z}/{x}/{y}.{ext}', {
-                	type: 'map',
-                	ext: 'jpg',
-                	attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/">MapQuest</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-                	subdomains: '1234'
-                });
-
-                MapQuestOpen_OSM.addTo(mapa);
 
                 //
                 var kredituak = L.control({position: 'bottomleft'});
