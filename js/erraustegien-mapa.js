@@ -4,7 +4,14 @@ var ErraustegienMapa = (function() {
 
     var mapa,
         MapQuestOpen_OSM,
-        geruzaEH;
+        geruzaEH,
+        lat = 43.183376,
+        lng = -2.478662,
+        zoom = 10,
+        // Zein erraustegi bistaratu behar diren. Ez bada besterik esaten guztiak (atzerakako bateragarritasuna mantentzeko).
+        // Array lehenetsia eskuz sartzea ez da oso dotorea. Horren ondorioz bi lekutan sartu behar da erraustegien zerrenda,
+        // hemen eta erraustegiak aldagaian. Bateratzea komeni da.
+        zein = ["Añorga", "Arrigorriaga", "Benesse-Maremne", "Lemoa", "Zabalgarbi", "Zubieta"];
 
     // http://blog.webkid.io/maps-with-leaflet-and-topojson/
     L.TopoJSON = L.GeoJSON.extend({
@@ -20,7 +27,29 @@ var ErraustegienMapa = (function() {
         }
     });
 
-    function sortu(id, lat, lng, zoom) {
+    // http://stackoverflow.com/a/3855394/2855012
+    function eskuratuURLParametroak(a) {
+        if (a === "") return {};
+        var b = {};
+        for (var i = 0; i < a.length; ++i)
+        {
+            var p=a[i].split('=', 2);
+            if (p.length == 1)
+                b[p[0]] = "";
+            else
+                b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+        }
+        return b;
+    }
+
+    function sortu(id) {
+
+        var url_parametroak = eskuratuURLParametroak(window.location.search.substr(1).split('&'));
+
+        lat = url_parametroak.lat ? parseFloat(url_parametroak.lat) : lat;
+        lng = url_parametroak.lng ? parseFloat(url_parametroak.lng) : lng;
+        zoom = url_parametroak.zoom ? parseInt(url_parametroak.zoom) : zoom;
+        zein = url_parametroak.zein ? url_parametroak.zein.split(",") : zein;
 
         mapa = L.map(id, {
             fullscreenControl: true
