@@ -10,11 +10,11 @@ var ErraustegienMapa = (function() {
         lat = 43.183376,
         lng = -2.478662,
         zoom = 10,
+        erraustegiak,
+        zirkuluak,
         // Zein erraustegi bistaratu behar diren. Ez bada besterik esaten guztiak (atzerakako bateragarritasuna mantentzeko).
         // Array lehenetsia eskuz sartzea ez da oso dotorea. Horren ondorioz bi lekutan sartu behar da erraustegien zerrenda,
         // hemen eta erraustegiak aldagaian. Bateratzea komeni da.
-        erraustegiak = "kaio",
-        zirkuluak,
         zein = ["Añorga", "Arrigorriaga", "Benesse-Maremne", "Lemoa", "Zabalgarbi", "Zubieta"];
 
     // http://blog.webkid.io/maps-with-leaflet-and-topojson/
@@ -46,7 +46,7 @@ var ErraustegienMapa = (function() {
         return b;
     }
 
-    function sortu(id, erraustegiak, zirkuluak, aukerak) {
+    function sortu(id, erraustegien_datuak, zirkuluen_datuak, aukerak) {
 
         var url_parametroak = eskuratuURLParametroak(window.location.search.substr(1).split('&'));
 
@@ -55,8 +55,9 @@ var ErraustegienMapa = (function() {
         zoom = url_parametroak.zoom ? parseInt(url_parametroak.zoom) : zoom;
         zein = url_parametroak.zein ? url_parametroak.zein.split(",") : zein;
 
-        erraustegiak = erraustegiak;
-        zirkuluak = zirkuluak;
+        erraustegiak = erraustegien_datuak;
+
+        zirkuluak = zirkuluen_datuak;
 
         mapa = L.map(id, {
             fullscreenControl: true
@@ -73,9 +74,7 @@ var ErraustegienMapa = (function() {
 
         if (aukerak.erraustegien_kontrolak) {
 
-            // Zergatik ez du hartzen objektu honetako erraustegiak aldagaiaren balioa?
-            // Hartuko balu ez nuke hemen pasa beharrik izango.
-            bistaratuErraustegienKontrolak(erraustegiak);
+            bistaratuErraustegienKontrolak();
 
         }
 
@@ -172,7 +171,7 @@ var ErraustegienMapa = (function() {
 
     }
 
-    function bistaratuErraustegienKontrolak(erraustegiak) {
+    function bistaratuErraustegienKontrolak() {
 
         erraustegien_kontrolak = L.control({position: "topright"});
 
@@ -183,7 +182,7 @@ var ErraustegienMapa = (function() {
             var kontrolak = "";
 
             var checked = "";
-            
+
             for (var gakoa in erraustegiak) {
 
                 checked = "";
