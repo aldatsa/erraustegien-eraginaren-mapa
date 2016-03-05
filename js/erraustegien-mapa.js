@@ -59,11 +59,11 @@ var ErraustegienMapa = (function() {
 
         zirkuluak = zirkuluen_datuak;
 
-        sortuMapa(id);
+        gehituMapa(id);
 
         if (aukerak.erraustegien_kontrolak) {
 
-            bistaratuErraustegienKontrolak();
+            gehituErraustegienKontrolak();
 
         }
 
@@ -71,7 +71,7 @@ var ErraustegienMapa = (function() {
 
     }
 
-    function sortuMapa(id) {
+    function gehituMapa(id) {
 
         mapa = L.map(id, {
             fullscreenControl: true
@@ -160,7 +160,7 @@ var ErraustegienMapa = (function() {
 
     }
 
-    function bistaratuErraustegienKontrolak() {
+    function gehituErraustegienKontrolak() {
 
         erraustegien_kontrolak = L.control({position: "topright"});
 
