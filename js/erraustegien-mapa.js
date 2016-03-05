@@ -61,8 +61,6 @@ var ErraustegienMapa = (function() {
 
         sortuMapa(id);
 
-        MapQuestOpen_OSM.addTo(mapa);
-
         if (aukerak.erraustegien_kontrolak) {
 
             bistaratuErraustegienKontrolak();
@@ -100,6 +98,9 @@ var ErraustegienMapa = (function() {
             attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/">MapQuest</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
             subdomains: '1234'
         });
+
+        MapQuestOpen_OSM.addTo(mapa);
+        
     }
 
     function gehituKredituak(kokapena, klasea, html) {
