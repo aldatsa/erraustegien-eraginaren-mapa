@@ -70,7 +70,8 @@ var ErraustegienMapa = (function() {
         if (aukerak.erraustegien_kontrolak) {
 
             gehituErraustegienKontrolak(aukerak.erraustegien_kontrolak.kokapena, aukerak.erraustegien_kontrolak.klaseak);
-
+            gehituErraustegienKontrolenManeiatzaileak();
+            
         }
 
         if (aukerak.txertatzeko_botoia) {
@@ -215,6 +216,10 @@ var ErraustegienMapa = (function() {
         };
 
         erraustegien_kontrolak.addTo(mapa);
+
+    }
+
+    function gehituErraustegienKontrolenManeiatzaileak() {
 
         // Sortu ditugun kontrolei klik gertaeraren maneiatzailea gehituko diegu.
         for (var gakoa in erraustegiak) {
