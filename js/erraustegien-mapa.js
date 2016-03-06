@@ -61,9 +61,15 @@ var ErraustegienMapa = (function() {
 
         gehituMapa(id);
 
+        if (aukerak.kredituak) {
+
+            gehituKredituak(aukerak.kredituak.kokapena, aukerak.kredituak.klaseak, aukerak.kredituak.html);
+
+        }
+
         if (aukerak.erraustegien_kontrolak) {
 
-            gehituErraustegienKontrolak();
+            gehituErraustegienKontrolak(aukerak.erraustegien_kontrolak.kokapena, aukerak.erraustegien_kontrolak.klaseak);
 
         }
 
@@ -77,12 +83,6 @@ var ErraustegienMapa = (function() {
 
             gehituEuskalHerria();
 
-        }
-
-        if (aukerak.kredituak) {
-
-            gehituKredituak(aukerak.kredituak.kokapena, aukerak.kredituak.klaseak, aukerak.kredituak.html);
-            
         }
 
         gehituErraustegiak();
@@ -179,13 +179,13 @@ var ErraustegienMapa = (function() {
 
     }
 
-    function gehituErraustegienKontrolak() {
+    function gehituErraustegienKontrolak(kokapena, klaseak) {
 
-        erraustegien_kontrolak = L.control({position: "topright"});
+        erraustegien_kontrolak = L.control({position: kokapena});
 
         erraustegien_kontrolak.onAdd = function(mapa) {
 
-            var div = L.DomUtil.create("div", "bistaratze-aukerak leaflet-bar");
+            var div = L.DomUtil.create("div", klaseak + " leaflet-bar");
 
             var kontrolak = "";
 
