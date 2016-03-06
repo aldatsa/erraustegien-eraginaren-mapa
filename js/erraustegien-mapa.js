@@ -126,13 +126,13 @@ var ErraustegienMapa = (function() {
 
     }
 
-    function gehituKredituak(kokapena, klasea, html) {
+    function gehituKredituak(kokapena, klaseak, html) {
 
         var kredituak = L.control({position: kokapena});
 
         kredituak.onAdd = function (mapa) {
 
-            var div = L.DomUtil.create('div', klasea);
+            var div = L.DomUtil.create('div', klaseak);
 
             div.innerHTML = html;
 
