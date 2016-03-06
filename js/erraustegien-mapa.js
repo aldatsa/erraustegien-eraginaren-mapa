@@ -71,7 +71,7 @@ var ErraustegienMapa = (function() {
 
             gehituErraustegienKontrolak(aukerak.erraustegien_kontrolak.kokapena, aukerak.erraustegien_kontrolak.klaseak);
             gehituErraustegienKontrolenManeiatzaileak();
-            
+
         }
 
         if (aukerak.txertatzeko_botoia) {
@@ -88,7 +88,8 @@ var ErraustegienMapa = (function() {
 
         gehituErraustegiak();
 
-
+        return mapa;
+        
     }
 
     function gehituMapa(id) {
