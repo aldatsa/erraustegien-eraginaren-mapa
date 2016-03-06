@@ -79,6 +79,12 @@ var ErraustegienMapa = (function() {
 
         }
 
+        if (aukerak.kredituak) {
+
+            gehituKredituak(aukerak.kredituak.kokapena, aukerak.kredituak.klaseak, aukerak.kredituak.html);
+            
+        }
+
         gehituErraustegiak();
 
 
@@ -265,8 +271,7 @@ var ErraustegienMapa = (function() {
     }
 
     return {
-        sortu: sortu,
-        gehituKredituak: gehituKredituak
+        sortu: sortu
     };
 
 })();

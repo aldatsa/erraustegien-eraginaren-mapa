@@ -74,20 +74,20 @@
                 };
 
                 var mapa = ErraustegienMapa.sortu("mapa", erraustegiak, zirkuluak, {
+                    kredituak: {
+                        kokapena: "bottomleft",
+                        klaseak: "kredituak",
+                        html: "<div>" +
+                                  "<a href='http://www.argia.eus/' target='_blank'><img id='argia' src='img/argia.jpg'></a>" +
+                                  "<a href='http://www.iametza.eus/' target='_blank'><img id='iametza' src='img/iametza.png'></a>" +
+                                  "<div id='egilea'><strong>Asier Iturralde Sarasola</strong> <a href='http://aldatsa.eus' target='_blank'>@aldatsa</a></div>" +
+                                  "<div><a href='https://github.com/aldatsa/erraustegien-eraginpeko-zonaldeak' target='_blank'>Iturburu kodea (GNU GPLv3)</a></div>" +
+                              "</div>"
+                    },
                     erraustegien_kontrolak: true,
                     txertatzeko_botoia: true,
                     bistaratu_Euskal_Herria: true
                 });
-
-                ErraustegienMapa.gehituKredituak("bottomleft",
-                                                 "kredituak",
-                                                 "<div>" +
-                                                    "<a href='http://www.argia.eus/' target='_blank'><img id='argia' src='img/argia.jpg'></a>" +
-                                                    "<a href='http://www.iametza.eus/' target='_blank'><img id='iametza' src='img/iametza.png'></a>" +
-                                                    "<div id='egilea'><strong>Asier Iturralde Sarasola</strong> <a href='http://aldatsa.eus' target='_blank'>@aldatsa</a></div>" +
-                                                    "<div><a href='https://github.com/aldatsa/erraustegien-eraginpeko-zonaldeak' target='_blank'>Iturburu kodea (GNU GPLv3)</a></div>" +
-                                                 "</div>"
-                );
 
             })();
         </script>
