@@ -75,7 +75,7 @@ var ErraustegienMapa = (function() {
 
         if (aukerak.txertatzeko_botoia) {
 
-            gehituTxertatzekoBotoia();
+            gehituTxertatzekoBotoia(aukerak.txertatzeko_botoia.kokapena, aukerak.txertatzeko_botoia.klaseak);
 
         }
 
@@ -239,13 +239,13 @@ var ErraustegienMapa = (function() {
         }
     }
 
-    function gehituTxertatzekoBotoia() {
+    function gehituTxertatzekoBotoia(kokapena, klaseak) {
 
-        txertatzeko_botoia = L.control({position: 'topleft'});
+        txertatzeko_botoia = L.control({position: kokapena});
 
         txertatzeko_botoia.onAdd = function (map) {
 
-            var div = L.DomUtil.create("div", "leaflet-bar txertatzeko-kodea");
+            var div = L.DomUtil.create("div", klaseak + " leaflet-bar");
 
             div.innerHTML = "<a title='Txertatu mapa hau zure webgunean' href='#'></a>";
 
