@@ -7,6 +7,7 @@ var ErraustegienMapa = (function() {
         geruzaEH,
         erraustegien_kontrolak,
         txertatzeko_botoia,
+        kontrolak,
         lat = 43.183376,
         lng = -2.478662,
         zoom = 10,
@@ -55,6 +56,16 @@ var ErraustegienMapa = (function() {
         zoom = url_parametroak.zoom ? parseInt(url_parametroak.zoom) : zoom;
         zein = url_parametroak.zein ? url_parametroak.zein.split(",") : zein;
 
+        if (url_parametroak.kontrolak === false) {
+
+            url_parametroak.kontrolak = false;
+
+        } else {
+
+            url_parametroak.kontrolak = true;
+
+        }
+
         erraustegiak = erraustegien_datuak;
 
         zirkuluak = zirkuluen_datuak;
@@ -67,7 +78,7 @@ var ErraustegienMapa = (function() {
 
         }
 
-        if (aukerak.erraustegien_kontrolak) {
+        if (aukerak.erraustegien_kontrolak && kontrolak) {
 
             gehituErraustegienKontrolak(aukerak.erraustegien_kontrolak.kokapena, aukerak.erraustegien_kontrolak.klaseak);
             gehituErraustegienKontrolenManeiatzaileak();
@@ -89,7 +100,7 @@ var ErraustegienMapa = (function() {
         gehituErraustegiak();
 
         return mapa;
-        
+
     }
 
     function gehituMapa(id) {
