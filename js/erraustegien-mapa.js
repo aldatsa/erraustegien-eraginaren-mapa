@@ -56,13 +56,13 @@ var ErraustegienMapa = (function() {
         zoom = url_parametroak.zoom ? parseInt(url_parametroak.zoom) : zoom;
         zein = url_parametroak.zein ? url_parametroak.zein.split(",") : zein;
 
-        if (url_parametroak.kontrolak === false) {
+        if (url_parametroak.kontrolak === "false") {
 
-            url_parametroak.kontrolak = false;
+            kontrolak = false;
 
         } else {
 
-            url_parametroak.kontrolak = true;
+            kontrolak = true;
 
         }
 
