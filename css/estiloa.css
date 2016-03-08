@@ -66,3 +66,16 @@ html, body {
      */
     max-width: calc(100% - 60px);
 }
+@media (max-width: 500px) {
+    .kredituak {
+        width: 135px;
+        font-size: 8.5px;
+    }
+    .kredituak #argia {
+        width: 55px;
+    }
+    .kredituak #iametza {
+        width: 55px;
+        margin-left: 5px;
+    }
+}
