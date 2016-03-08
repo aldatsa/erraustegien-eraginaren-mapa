@@ -60,3 +60,9 @@ html, body {
     width: 98%;
     height: 65px;
 }
+.leaflet-top.leaflet-right {
+    /* Hau gabe pantaila txikietan bistaratze-aukerak kontrolak zoom-aren aukeren gainera joaten dira.
+     * Bistaratze-aukerak goian eskuinean jarri ordez beste nonbait badaude hau aldatu beharra dago.
+     */
+    max-width: calc(100% - 60px);
+}
