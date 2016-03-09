@@ -81,7 +81,13 @@
                     }
                 };
 
-                var mapa = ErraustegienMapa.sortu("mapa", erraustegiak, zirkuluak, {
+                var erraustegienIkonoa = {
+                    url: "img/erraustegia.png",
+                    tamaina: [40, 50],
+                    ainguraPuntua: [20, 30]
+                }
+
+                var mapa = ErraustegienMapa.sortu("mapa", erraustegiak, zirkuluak, erraustegienIkonoa, {
                     kredituak: {
                         kokapena: "bottomleft",
                         klaseak: "kredituak",

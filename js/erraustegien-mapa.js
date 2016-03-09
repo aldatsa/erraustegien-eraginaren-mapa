@@ -13,6 +13,7 @@ var ErraustegienMapa = (function() {
         zoom = 10,
         erraustegiak,
         zirkuluak,
+        erraustegienIkonoa,
         // Zein erraustegi bistaratu behar diren. Ez bada besterik esaten guztiak (atzerakako bateragarritasuna mantentzeko).
         // Array lehenetsia eskuz sartzea ez da oso dotorea. Horren ondorioz bi lekutan sartu behar da erraustegien zerrenda,
         // hemen eta erraustegiak aldagaian. Bateratzea komeni da.
@@ -47,7 +48,7 @@ var ErraustegienMapa = (function() {
         return b;
     }
 
-    function sortu(id, erraustegien_datuak, zirkuluen_datuak, aukerak) {
+    function sortu(id, erraustegien_datuak, zirkuluen_datuak, ikonoaren_datuak, aukerak) {
 
         var url_parametroak = eskuratuURLParametroak(window.location.search.substr(1).split('&'));
 
@@ -69,6 +70,8 @@ var ErraustegienMapa = (function() {
         erraustegiak = erraustegien_datuak;
 
         zirkuluak = zirkuluen_datuak;
+
+        erraustegienIkonoa = ikonoaren_datuak;
 
         gehituMapa(id);
 
@@ -124,7 +127,7 @@ var ErraustegienMapa = (function() {
 
         for (var gakoa in erraustegiak) {
 
-            erraustegiak[gakoa].erraustegia = new Erraustegia(mapa, erraustegiak[gakoa].izena, erraustegiak[gakoa].koordenatuak, zirkuluak);
+            erraustegiak[gakoa].erraustegia = new Erraustegia(mapa, erraustegiak[gakoa].izena, erraustegiak[gakoa].koordenatuak, erraustegienIkonoa, zirkuluak);
 
             // Erraustegia bistaratu behar da?
             if (zein.indexOf(gakoa) > -1) {
