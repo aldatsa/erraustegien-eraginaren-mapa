@@ -56,7 +56,7 @@ Erraustegia.prototype.marraztuZirkuluak = function() {
     self.zirkuluak.forEach(function(element, index, array) {
 
         self.leaflet_zirkuluak.push(L.circle(self.koordenatuak, element.distantzia, {
-            color: 'red',
+            color: element.kolorea,
             fillColor: '#f03',
             fillOpacity: element.opakotasuna,
             weight: element.marra
