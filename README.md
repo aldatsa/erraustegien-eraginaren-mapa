@@ -1,6 +1,6 @@
 #Euskal kostaldeko erraustegien eraginpeko zonaldeen bisualizazioa
 
-Bilboko Zabalgarbi eta Donostiako Rezolan dagoeneko martxan dauden eta Zubietan eraiki nahi duten erraustegien eraginpeko zonaldeak bistaratzen dira mapa honetan.
+Bilboko Zabalgarbi, Arrigorriaga, Lemoa, Galindo eta Donostiako Rezolan dagoeneko martxan dauden eta Zubietan eraiki nahi duten erraustegien eraginpeko zonaldeak bistaratzen dira mapa honetan.
 
 ##Txertatu zure webgunean
 
