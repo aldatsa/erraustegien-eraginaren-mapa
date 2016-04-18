@@ -17,7 +17,7 @@ var ErraustegienMapa = (function() {
         // Zein erraustegi bistaratu behar diren. Ez bada besterik esaten guztiak (atzerakako bateragarritasuna mantentzeko).
         // Array lehenetsia eskuz sartzea ez da oso dotorea. Horren ondorioz bi lekutan sartu behar da erraustegien zerrenda,
         // hemen eta erraustegiak aldagaian. Bateratzea komeni da.
-        zein = ["Añorga", "Arrigorriaga", "Benesse-Maremne", "Lemoa", "Zabalgarbi", "Zubieta"];
+        zein = ["Añorga", "Arrigorriaga", "Benesse-Maremne", "Galindo", "Lemoa", "Zabalgarbi", "Zubieta"];
 
     // http://blog.webkid.io/maps-with-leaflet-and-topojson/
     L.TopoJSON = L.GeoJSON.extend({
